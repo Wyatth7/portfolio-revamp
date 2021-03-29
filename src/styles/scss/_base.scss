@@ -17,9 +17,13 @@ body {
 
 .App {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 
   .pages {
     padding: 8rem 2.5rem 0 2.5rem;
+    flex: 1;
   }
 }
 
@@ -37,5 +41,48 @@ body {
     font-size: 1.5rem;
     line-height: 25px;
     font-weight: 400;
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  .App {
+    .pages {
+      padding: 12rem 2.5rem 0 2.5rem;
+    }
+  }
+
+  .headings {
+    margin-bottom: 4rem;
+
+    p {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 770px) {
+  .App {
+    .pages {
+      padding: 12rem 20% 0 20%;
+      // padding: 12rem 28% 0 28%;
+    }
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .App {
+    .pages {
+      padding: 12rem 28% 0 28%;
+      // padding: 12rem 28% 0 28%;
+    }
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .App {
+    .pages {
+      padding: 12rem 32% 0 32%;
+      // padding: 12rem 28% 0 28%;
+    }
   }
 }

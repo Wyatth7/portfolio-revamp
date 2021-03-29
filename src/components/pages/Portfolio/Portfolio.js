@@ -3,6 +3,7 @@ import React from "react";
 // COMPONENTS
 import MainPage from "../MainPage/MainPage";
 import SubHeading from "./../MainPage/Headings/SubHeading/SubHeading";
+import GitHubBtn from "./GitHubBtn/GitHubBtn";
 import ProjectItem from "./ProjectItem/ProjectItem";
 
 const text =
@@ -48,6 +49,7 @@ const Portfolio = (props) => {
               title="Royal Port Metals"
               description="An app that scraps the precious metal investor's spread sheet for a modern easy to use web app."
             />
+            <GitHubBtn />
           </SubHeading>
         </div>
       </MainPage>
