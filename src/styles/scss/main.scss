@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;700&display=swap");
+
+@import "./vars";
+@import "./base";
+
+@import "./../../components/Nav/Nav";
+@import "./../../components/Nav/NavLinks/NavLinks";
+@import "./../../components/pages/MainPage/MainPage";
+@import "./../../components/pages/Home/Home";
+@import "./../../components/pages/MainPage/Headings/SubHeading/SubHeading";
+@import "./../../components/pages/MainPage/Headings/PrimaryHeading/PrimaryHeading";
+@import "./../../components/pages/Portfolio/Portfolio";
+@import "./../../components/pages/Portfolio/ProjectItem/ProjectItem";
+@import "./../../components/pages/Portfolio/ProjectItem/ProjectTags/ProjectTags";
+@import "./../../components/pages/Portfolio/GitHubBtn/GitHubBtn";
+
+// @import './../../components';

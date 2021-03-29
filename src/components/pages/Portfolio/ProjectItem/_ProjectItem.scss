@@ -1,0 +1,38 @@
+.ProjectItem {
+  cursor: pointer;
+  margin-bottom: 2rem;
+  display: flex;
+  padding: 1.5rem;
+  border: 1px solid $theme-btn;
+  border-radius: 3px;
+  text-decoration: none;
+
+  .project-img {
+    margin-right: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.2rem;
+    color: $black;
+  }
+
+  .project-content {
+    .project-title {
+      margin-bottom: 0.5rem;
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: $black;
+    }
+
+    .projects-desc {
+      font-size: 1.38rem;
+      line-height: 17px;
+      margin-bottom: 1rem;
+    }
+
+    div {
+      display: flex;
+      margin-right: 0.6rem;
+    }
+  }
+}

@@ -1,0 +1,41 @@
+*::before,
+*,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-family: "Inter", sans-serif;
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+.App {
+  position: relative;
+
+  .pages {
+    padding: 8rem 2.5rem 0 2.5rem;
+  }
+}
+
+.headings {
+  margin-bottom: 4rem;
+
+  h1,
+  h2 {
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
+
+  p {
+    color: $secondary-font;
+    font-size: 1.5rem;
+    line-height: 25px;
+    font-weight: 400;
+  }
+}

@@ -1,0 +1,12 @@
+.ProjectTags {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $tags-bk;
+
+  p {
+    color: $black;
+    font-size: 1.2rem;
+    font-style: italic;
+  }
+}

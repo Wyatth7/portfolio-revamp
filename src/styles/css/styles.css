@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;700&display=swap");
+*::before,
+*,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-family: "Inter", sans-serif;
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box; }
+
+.App {
+  position: relative; }
+  .App .pages {
+    padding: 8rem 2.5rem 0 2.5rem; }
+
+.headings {
+  margin-bottom: 4rem; }
+  .headings h1,
+  .headings h2 {
+    margin-bottom: 1.5rem;
+    font-weight: 500; }
+  .headings p {
+    color: #4b4f53;
+    font-size: 1.5rem;
+    line-height: 25px;
+    font-weight: 400; }
+
+.Nav {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 2.5rem;
+  z-index: 100;
+  background-color: #ffffffc7;
+  backdrop-filter: blur(10px); }
+  .Nav .theme-shift {
+    cursor: pointer;
+    height: 3.5rem;
+    width: 3.5rem;
+    background-color: #e5e7eb;
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .Nav .theme-shift .theme-icon {
+      font-size: 1.5rem; }
+  .Nav .links {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-left: 1rem; }
+    .Nav .links a:not(:last-of-type) {
+      margin-right: 1rem; }
+
+.NavLinks {
+  width: 100%;
+  font-size: 1.6rem;
+  color: #000;
+  text-decoration: none; }
+
+.SubHeading h2 {
+  font-size: 2.2rem; }
+
+.PrimaryHeading h1 {
+  font-size: 2.5rem; }
+
+.ProjectItem {
+  cursor: pointer;
+  margin-bottom: 2rem;
+  display: flex;
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 3px;
+  text-decoration: none; }
+  .ProjectItem .project-img {
+    margin-right: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.2rem;
+    color: #000; }
+  .ProjectItem .project-content .project-title {
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #000; }
+  .ProjectItem .project-content .projects-desc {
+    font-size: 1.38rem;
+    line-height: 17px;
+    margin-bottom: 1rem; }
+  .ProjectItem .project-content div {
+    display: flex;
+    margin-right: 0.6rem; }
+
+.ProjectTags {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5; }
+  .ProjectTags p {
+    color: #000;
+    font-size: 1.2rem;
+    font-style: italic; }
