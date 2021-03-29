@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 
 // COMPONENTS
 import MainPage from "../MainPage/MainPage";
@@ -7,11 +8,14 @@ import GitHubBtn from "./GitHubBtn/GitHubBtn";
 import ProjectItem from "./ProjectItem/ProjectItem";
 
 const text =
-  "All my projects are either fullstack or static web apps. To check out each project, just click on it! You can find the projects listed below on my Github page.";
+  "All my projects are either NPM packages, full stack, or front end web apps. To check out each project, just click on it!";
 
 const Portfolio = (props) => {
   return (
     <div className="Portfolio">
+      <Helmet>
+        <title>Projects | Wyatt Hardin</title>
+      </Helmet>
       <MainPage pageHead="Projects" headText={text}>
         <div className="portfolio-content">
           <SubHeading heading="Full Stack">

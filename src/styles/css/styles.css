@@ -13,6 +13,39 @@ html {
 body {
   box-sizing: border-box; }
 
+.dark-mode {
+  background-color: #000; }
+  .dark-mode .Nav {
+    background-color: #000; }
+    .dark-mode .Nav .wrapper .theme-shift {
+      background-color: #000;
+      color: #fff; }
+  .dark-mode h1,
+  .dark-mode h2,
+  .dark-mode h3,
+  .dark-mode h4,
+  .dark-mode a,
+  .dark-mode p,
+  .dark-mode .Home .show-more p,
+  .dark-mode .GitHubBtn a p,
+  .dark-mode .ProjectItem .project-content .project-title,
+  .dark-mode .ProjectItem .project-img,
+  .dark-mode .icon {
+    color: #fff; }
+  .dark-mode .TimelineInfo .info p {
+    color: #dfdbdb; }
+  .dark-mode .PrimaryHeading p,
+  .dark-mode .ProjectItem .project-content .projects-desc {
+    color: #dfdbdb; }
+  .dark-mode .ProjectTags {
+    background-color: #000; }
+    .dark-mode .ProjectTags p {
+      color: #fff; }
+  .dark-mode .ProjectItem {
+    border-color: #4b4f53; }
+    .dark-mode .ProjectItem:hover {
+      box-shadow: none; }
+
 .App {
   position: relative;
   display: flex;
@@ -172,9 +205,9 @@ body {
   border: 1px solid #e5e7eb;
   border-radius: 3px;
   text-decoration: none;
-  transition: all 0.2s; }
+  transition: all 0.1s; }
   .ProjectItem:hover {
-    box-shadow: 1px 2px 1px #e5e7eb; }
+    box-shadow: 1px 2px 2px #e5e7eb; }
   .ProjectItem .project-img {
     margin-right: 2rem;
     display: flex;
@@ -220,3 +253,24 @@ body {
       margin: auto 0; }
       .GitHubBtn a p span {
         font-size: 1.7rem; }
+
+.Timeline {
+  margin-top: 2rem;
+  border-bottom: 1px solid #e5e7eb; }
+  .Timeline h3 {
+    font-size: 2rem;
+    margin-bottom: 2rem; }
+  .Timeline div {
+    margin-bottom: 2rem; }
+
+.TimelineInfo {
+  display: flex; }
+  .TimelineInfo .icon {
+    margin-right: 0.7rem;
+    font-size: 1.5rem;
+    color: #61b15a; }
+  .TimelineInfo .info h4 {
+    font-size: 1.5rem; }
+  .TimelineInfo .info p {
+    margin-top: 0.2rem;
+    font-size: 1.3rem; }

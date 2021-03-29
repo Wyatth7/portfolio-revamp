@@ -9,9 +9,12 @@ const Nav = (props) => {
   return (
     <div className="Nav">
       <div className="wrapper">
-        <div className="theme-shift">
-          <FontAwesomeIcon className="theme-icon" icon={solid.faMoon} />
-        </div>
+        <button onClick={() => props.themeChange()} className="theme-shift">
+          <FontAwesomeIcon
+            className="theme-icon"
+            icon={props.isDark ? solid.faSun : solid.faMoon}
+          />
+        </button>
         <div className="links">
           <NavLinks title="Home" to="/" />
           <NavLinks title="Blog" to="/blog" />

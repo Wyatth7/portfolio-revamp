@@ -15,6 +15,59 @@ body {
   box-sizing: border-box;
 }
 
+.dark-mode {
+  background-color: $black;
+
+  .Nav {
+    background-color: $black;
+
+    .wrapper {
+      .theme-shift {
+        background-color: $black;
+        color: $white;
+      }
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  a,
+  p,
+  .Home .show-more p,
+  .GitHubBtn a p,
+  .ProjectItem .project-content .project-title,
+  .ProjectItem .project-img,
+  .icon {
+    color: $white;
+  }
+
+  .TimelineInfo .info p {
+    color: $dark-mode-white;
+  }
+
+  .PrimaryHeading p,
+  .ProjectItem .project-content .projects-desc {
+    color: $dark-mode-white;
+  }
+
+  .ProjectTags {
+    background-color: $black;
+
+    p {
+      color: $white;
+    }
+  }
+
+  .ProjectItem {
+    border-color: $secondary-font;
+    &:hover {
+      box-shadow: none;
+    }
+  }
+}
+
 .App {
   position: relative;
   display: flex;
@@ -64,7 +117,6 @@ body {
   .App {
     .pages {
       padding: 12rem 20% 0 20%;
-      // padding: 12rem 28% 0 28%;
     }
   }
 }
@@ -73,7 +125,6 @@ body {
   .App {
     .pages {
       padding: 12rem 28% 0 28%;
-      // padding: 12rem 28% 0 28%;
     }
   }
 }
@@ -82,7 +133,6 @@ body {
   .App {
     .pages {
       padding: 12rem 32% 0 32%;
-      // padding: 12rem 28% 0 28%;
     }
   }
 }
