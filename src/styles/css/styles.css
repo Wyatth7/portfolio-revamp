@@ -110,7 +110,7 @@ body {
 
 @media only screen and (min-width: 770px) {
   .Nav {
-    padding: 4rem 12%; } }
+    padding: 4rem 25%; } }
 
 .NavLinks {
   width: 100%;
@@ -171,7 +171,10 @@ body {
   padding: 1.5rem;
   border: 1px solid #e5e7eb;
   border-radius: 3px;
-  text-decoration: none; }
+  text-decoration: none;
+  transition: all 0.2s; }
+  .ProjectItem:hover {
+    box-shadow: 1px 2px 1px #e5e7eb; }
   .ProjectItem .project-img {
     margin-right: 2rem;
     display: flex;

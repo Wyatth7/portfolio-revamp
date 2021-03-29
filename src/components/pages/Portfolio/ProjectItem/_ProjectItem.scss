@@ -6,6 +6,11 @@
   border: 1px solid $theme-btn;
   border-radius: 3px;
   text-decoration: none;
+  transition: all 0.2s;
+
+  &:hover {
+    box-shadow: 1px 2px 1px $theme-btn;
+  }
 
   .project-img {
     margin-right: 2rem;
