@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { withRouter } from "react-router-dom";
+import { useParams } from "react-router";
+import Ajax from "../../../../assets/ajax";
 
 // ICONS
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,8 +9,6 @@ import * as solid from "@fortawesome/free-solid-svg-icons";
 
 // IMAGES
 import blogImg from "./../../../../assets/images/test-blog-img.jpg";
-import Ajax from "../../../../assets/ajax";
-import { useParams } from "react-router";
 
 const BlogPost = (props) => {
   const { id } = useParams();
@@ -32,9 +33,17 @@ const BlogPost = (props) => {
     };
   }, [setPost, id]);
 
+  const goBack = () => {
+    props.history.goBack();
+  };
+
   return (
     <div className="BlogPost">
-      <FontAwesomeIcon className="back-icon" icon={solid.faArrowLeft} />
+      <FontAwesomeIcon
+        onClick={goBack}
+        className="back-icon"
+        icon={solid.faArrowLeft}
+      />
       {post ? (
         <React.Fragment>
           <div className="post-title">
@@ -57,4 +66,4 @@ const BlogPost = (props) => {
   );
 };
 
-export default BlogPost;
+export default withRouter(BlogPost);

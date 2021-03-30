@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import BlogItem from "./BlogItem/BlogItem";
 import Ajax from "../../../assets/ajax";
 
-const text = "Follow along with my development journey by reading my posts. ";
+const text = "Follow along my development journey by reading the posts below.";
 
 const Blog = (props) => {
   const [postData, setPostData] = useState([]);
@@ -58,12 +58,6 @@ const Blog = (props) => {
               />
             ))
           : null}
-        {/* <BlogItem
-          postId="1"
-          title="University and modern day programming"
-          views="30"
-          desc="A students input on the current state of programming taught in college."
-        /> */}
       </SubHeading>
     </div>
   );
