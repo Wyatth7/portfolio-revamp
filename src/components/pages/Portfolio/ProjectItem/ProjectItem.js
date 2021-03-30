@@ -22,9 +22,11 @@ const ProjectItem = (props) => {
         <h3 className="project-title">{props.title}</h3>
         <p className="projects-desc">{props.description}</p>
         <div>
-          <ProjectTags tag="React" />
-          <ProjectTags tag="Node" />
-          <ProjectTags tag="Firebase" />
+          {props.tags
+            ? props.tags.map((el) => (
+                <ProjectTags key={Math.random()} tag={el} />
+              ))
+            : null}
         </div>
       </div>
     </a>

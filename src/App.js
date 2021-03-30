@@ -10,6 +10,7 @@ import Blog from "./components/pages/Blog/Blog";
 import Portfolio from "./components/pages/Portfolio/Portfolio";
 import Footer from "./components/Footer/Footer";
 import ScrollToTop from "./components/hoc/ScrollToTop/ScrollToTop";
+import BlogPost from "./components/pages/Blog/BlogPost/BlogPost";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -25,6 +26,7 @@ function App() {
         <ScrollToTop />
         <Switch>
           <Route path="/projects" component={Portfolio} />
+          <Route path="/blog/:id" component={BlogPost} />
           <Route path="/blog" component={Blog} />
           <Route exact path="/" component={Home} />
         </Switch>

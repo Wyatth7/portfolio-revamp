@@ -1,0 +1,45 @@
+.BlogItem {
+  cursor: pointer;
+  text-decoration: none;
+
+  .title-views {
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: $black;
+    }
+
+    p {
+      margin: 0.5rem 0;
+      font-size: 1.3rem;
+    }
+  }
+
+  .post-desc {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  .BlogItem {
+    .title-views {
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      h3 {
+        font-size: 1.8rem;
+      }
+
+      p {
+        font-size: 1.5rem;
+      }
+    }
+
+    .post-desc {
+      font-size: 1.5rem;
+    }
+  }
+}

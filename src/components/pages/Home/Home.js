@@ -25,19 +25,22 @@ const Home = (props) => {
       <MainPage pageHead="Hey, I'm Wyatt Hardin" headText={text}>
         <SubHeading heading="Projects">
           <ProjectItem
-            link="https://ecstatic-blackwell-e0b418.netlify.app/"
-            title="Royal Port Metals"
-            description="An app that scraps the precious metal investor's spread sheet for a modern easy to use web app."
+            link="https://wyatth7.github.io/JSON_Formatter/"
+            title="JSON Formatter"
+            description="JSON Formatter validates and pretty prints a string submitted by the user."
+            tags={["React"]}
           />
           <ProjectItem
-            link="https://ecstatic-blackwell-e0b418.netlify.app/"
-            title="Royal Port Metals"
-            description="An app that scraps the precious metal investor's spread sheet for a modern easy to use web app."
+            link="https://github.com/Wyatth7/querry-array"
+            title="Query Array"
+            description="Query an array with a string. This NPM package is great for filtering search data."
+            tags={["Typescript"]}
           />
           <ProjectItem
-            link="https://ecstatic-blackwell-e0b418.netlify.app/"
-            title="Royal Port Metals"
-            description="An app that scraps the precious metal investor's spread sheet for a modern easy to use web app."
+            link="https://github.com/Wyatth7/handy-date"
+            title="Handy Date"
+            description="A package that removes the hastle of using the Javascript Date class."
+            tags={["Typescript"]}
           />
           <NavLink className="show-more" to="/projects">
             <p>

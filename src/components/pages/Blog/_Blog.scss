@@ -1,0 +1,39 @@
+.Blog {
+  width: 100%;
+
+  .search-posts {
+    cursor: text;
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid $theme-btn;
+    border-radius: 6px;
+
+    .search-icon,
+    input {
+      font-size: 2rem;
+    }
+
+    .search-icon {
+      width: 10%;
+    }
+
+    input {
+      height: 100%;
+      outline: none;
+      width: 90%;
+      border: none;
+    }
+  }
+
+  .subhead-margin {
+    margin-top: 4rem;
+  }
+}
+
+::placeholder {
+  font-family: "Inter", sans-serif;
+}
