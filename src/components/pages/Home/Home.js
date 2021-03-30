@@ -28,18 +28,21 @@ const Home = (props) => {
             link="https://wyatth7.github.io/JSON_Formatter/"
             title="JSON Formatter"
             description="JSON Formatter validates and pretty prints a string submitted by the user."
+            icon={solid.faAlignLeft}
             tags={["React", "SASS/SCSS"]}
           />
           <ProjectItem
             link="https://github.com/Wyatth7/querry-array"
             title="Query Array"
             description="Query an array with a string. This NPM package is great for filtering search data."
+            icon={solid.faSearch}
             tags={["Typescript"]}
           />
           <ProjectItem
             link="https://github.com/Wyatth7/handy-date"
             title="Handy Date"
             description="A package that removes the hastle of using the Javascript Date class."
+            icon={solid.faClock}
             tags={["Typescript"]}
           />
           <NavLink className="show-more" to="/projects">

@@ -8,5 +8,6 @@ router
   .post(blogController.createPost)
   .get(blogController.sendPostSelectData);
 router.route("/:id").get(blogController.getPost);
+router.route("/query/:query").get(blogController.getPostWithQuery);
 
 export default router;

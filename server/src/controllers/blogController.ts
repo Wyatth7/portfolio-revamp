@@ -7,8 +7,8 @@ export const createPost: RequestHandler = async (req, res, next) => {
 
   try {
     await BlogModel.create({
-      blogTitle: reqData.blogTitle,
-      author: reqData.author,
+      blogTitle: reqData.blogTitle.toLowerCase(),
+      author: reqData.author.toLowerCase(),
       dateAdded: reqData.dateAdded,
       views: 0,
       image: reqData.image,
@@ -59,5 +59,24 @@ export const sendPostSelectData: RequestHandler = async (req, res, next) => {
   } catch (err) {
     console.log(err);
     return sendRes(res, 400, "Could not get posts.");
+  }
+};
+
+export const getPostWithQuery: RequestHandler = async (req, res, next) => {
+  try {
+    const posts = await BlogModel.find({
+      blogTitle: { $regex: req.params.query.toLowerCase() },
+    });
+
+    if (!posts) {
+      return sendRes(res, 400, "Could not find any posts with that name.");
+    }
+
+    res.status(200).json({
+      posts,
+    });
+  } catch (err) {
+    console.log(err);
+    sendRes(res, 400, "Could not find posts.");
   }
 };

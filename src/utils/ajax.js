@@ -24,6 +24,10 @@ class Ajax {
   static async createBlogPost(data) {
     return await this.callServer("blog/posts", "post", data);
   }
+
+  static async queryWithString(string) {
+    return await this.callServer(`blog/posts/query/${string}`, "get");
+  }
 }
 
 export default Ajax;

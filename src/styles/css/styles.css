@@ -157,6 +157,14 @@ body {
 
 @media only screen and (min-width: 770px) {
   .Nav {
+    padding: 4rem 12%; } }
+
+@media only screen and (min-width: 1200px) {
+  .Nav {
+    padding: 4rem 20%; } }
+
+@media only screen and (min-width: 1640px) {
+  .Nav {
     padding: 4rem 25%; } }
 
 .NavLinks {
@@ -213,6 +221,8 @@ body {
 
 .Blog {
   width: 100%; }
+  .Blog .queried-items {
+    margin-top: 3rem; }
   .Blog .search-posts {
     cursor: text;
     width: 100%;
@@ -248,10 +258,12 @@ body {
     color: #000; }
   .BlogItem .title-views p {
     margin: 0.5rem 0;
-    font-size: 1.3rem; }
+    font-size: 1.3rem;
+    color: #4b4f53; }
   .BlogItem .post-desc {
     font-size: 1.5rem;
-    margin-bottom: 3rem; }
+    margin-bottom: 3rem;
+    color: #4b4f53; }
 
 @media only screen and (min-width: 500px) {
   .BlogItem .title-views {
@@ -264,7 +276,7 @@ body {
     .BlogItem .title-views p {
       font-size: 1.5rem; }
   .BlogItem .post-desc {
-    font-size: 1.5rem; } }
+    font-size: 1.8rem; } }
 
 .BlogPost {
   margin-top: 0.4rem;
@@ -285,9 +297,18 @@ body {
       font-size: 1.3rem; }
     .BlogPost .author .art-views {
       font-size: 1.1rem; }
-  .BlogPost .img img {
-    max-width: 100%;
-    max-height: 100%; }
+  .BlogPost .img {
+    margin-bottom: 4rem; }
+    .BlogPost .img img {
+      max-width: 100%;
+      max-height: 100%; }
+
+.BodyText {
+  margin-bottom: 4rem;
+  width: 100%; }
+  .BodyText p {
+    font-size: 2.3rem;
+    line-height: 28px; }
 
 .ProjectItem {
   cursor: pointer;

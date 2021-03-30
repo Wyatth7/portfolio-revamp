@@ -1,6 +1,9 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 
+// ICONS
+import * as solid from "@fortawesome/free-solid-svg-icons";
+
 // COMPONENTS
 import MainPage from "../MainPage/MainPage";
 import SubHeading from "./../MainPage/Headings/SubHeading/SubHeading";
@@ -23,6 +26,7 @@ const Portfolio = (props) => {
               link="https://github.com/Wyatth7/portfolio-revamp"
               title="Personal Portfolio"
               description="It's what you're looking at right now! Click to see the code."
+              icon={solid.faPortrait}
               tags={[
                 "React",
                 "Node",
@@ -38,6 +42,7 @@ const Portfolio = (props) => {
               link="https://wyatth7.github.io/JSON_Formatter/"
               title="JSON Formatter"
               description="JSON Formatter validates and pretty prints a string submitted by the user."
+              icon={solid.faAlignLeft}
               tags={["React", "SASS/SCSS"]}
             />
           </SubHeading>
@@ -46,12 +51,14 @@ const Portfolio = (props) => {
               link="https://github.com/Wyatth7/querry-array"
               title="Query Array"
               description="Query an array with a string. This NPM package is great for filtering search data."
+              icon={solid.faSearch}
               tags={["Typescript"]}
             />
             <ProjectItem
               link="https://github.com/Wyatth7/handy-date"
               title="Handy Date"
               description="A package that removes the hastle of using the Javascript Date class."
+              icon={solid.faClock}
               tags={["Typescript"]}
             />
             <GitHubBtn />

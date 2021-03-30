@@ -9,12 +9,15 @@ import SubHeading from "./../MainPage/Headings/SubHeading/SubHeading";
 import * as solid from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import BlogItem from "./BlogItem/BlogItem";
-import Ajax from "../../../assets/ajax";
+import Ajax from "../../../utils/ajax";
 
 const text = "Follow along my development journey by reading the posts below.";
 
 const Blog = (props) => {
   const [postData, setPostData] = useState([]);
+  const [searchStr, setSearchStr] = useState("");
+  const [queryData, setQueryData] = useState([]);
+  const [queryErr, setQueryErr] = useState(false);
 
   const focusSearch = () => {
     document.getElementById("search").focus();
@@ -36,6 +39,53 @@ const Blog = (props) => {
     };
   }, [setPostData, postData]);
 
+  useEffect(
+    (e) => {
+      const timeout = setTimeout(async () => {
+        try {
+          if (searchStr.length === 0) {
+            return;
+          }
+
+          const posts = await Ajax.queryWithString(searchStr);
+          console.log(posts);
+          setQueryData(posts.data.posts);
+        } catch (err) {
+          console.log(err);
+        }
+      }, 500);
+
+      return () => clearTimeout(timeout);
+    },
+    [searchStr, setQueryData]
+  );
+
+  let queriedPosts;
+
+  if (!queryErr) {
+    queriedPosts = (
+      <div className="queried-posts">
+        {queryData.length > 0
+          ? queryData.map((el) => (
+              <BlogItem
+                key={el._id}
+                postId={el._id}
+                title={el.blogTitle}
+                views={el.views}
+                desc={el.description}
+              />
+            ))
+          : null}
+      </div>
+    );
+  } else {
+    queriedPosts = (
+      <div className="query-err">
+        <h1>Could not find any posts with that title.</h1>
+      </div>
+    );
+  }
+
   return (
     <div className="Blog">
       <Helmet>
@@ -43,9 +93,15 @@ const Blog = (props) => {
       </Helmet>
       <PrimaryHeading heading="Blog" introText={text} />
       <div onClick={focusSearch} className="search-posts">
-        <input id="search" type="text" placeholder="Search" />
+        <input
+          onChange={(e) => setSearchStr(e.target.value)}
+          id="search"
+          type="text"
+          placeholder="Search"
+        />
         <FontAwesomeIcon className="search-icon" icon={solid.faSearch} />
       </div>
+      <div className="queried-items">{queriedPosts}</div>
       <SubHeading className="subhead-margin" heading="All Posts">
         {postData.length >= 1
           ? postData.map((el) => (

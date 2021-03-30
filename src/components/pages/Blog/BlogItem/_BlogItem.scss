@@ -12,12 +12,14 @@
     p {
       margin: 0.5rem 0;
       font-size: 1.3rem;
+      color: $secondary-font;
     }
   }
 
   .post-desc {
     font-size: 1.5rem;
     margin-bottom: 3rem;
+    color: $secondary-font;
   }
 }
 
@@ -39,7 +41,7 @@
     }
 
     .post-desc {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
     }
   }
 }
