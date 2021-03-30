@@ -30,6 +30,7 @@ body {
   .dark-mode .Home .show-more p,
   .dark-mode .GitHubBtn a p,
   .dark-mode .Blog .search-posts,
+  .dark-mode .BlogItem .title-views h3,
   .dark-mode .ProjectItem .project-content .project-title,
   .dark-mode .ProjectItem .project-img,
   .dark-mode .icon {

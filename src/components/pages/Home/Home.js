@@ -28,7 +28,7 @@ const Home = (props) => {
             link="https://wyatth7.github.io/JSON_Formatter/"
             title="JSON Formatter"
             description="JSON Formatter validates and pretty prints a string submitted by the user."
-            tags={["React"]}
+            tags={["React", "SASS/SCSS"]}
           />
           <ProjectItem
             link="https://github.com/Wyatth7/querry-array"
