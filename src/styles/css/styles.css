@@ -44,8 +44,8 @@ body {
   .dark-mode .BlogItem .title-views p,
   .dark-mode .BlogItem .post-desc p {
     color: #7b8086; }
-  .dark-mode .TimelineInfo .info p {
-    color: #dfdbdb; }
+  .dark-mode .Blog .no-posts,
+  .dark-mode .TimelineInfo .info p,
   .dark-mode .PrimaryHeading p,
   .dark-mode .ProjectItem .project-content .projects-desc {
     color: #dfdbdb; }
@@ -245,6 +245,8 @@ body {
       border: none; }
   .Blog .subhead-margin {
     margin-top: 4rem; }
+  .Blog .no-posts {
+    text-align: center; }
 
 ::placeholder {
   font-family: "Inter", sans-serif; }
@@ -308,7 +310,8 @@ body {
   width: 100%; }
   .BodyText p {
     font-size: 2.3rem;
-    line-height: 28px; }
+    font-weight: 400;
+    line-height: 35px; }
 
 .ProjectItem {
   cursor: pointer;

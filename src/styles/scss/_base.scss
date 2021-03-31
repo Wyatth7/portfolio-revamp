@@ -59,10 +59,8 @@ body {
     color: $gray;
   }
 
-  .TimelineInfo .info p {
-    color: $dark-mode-white;
-  }
-
+  .Blog .no-posts,
+  .TimelineInfo .info p,
   .PrimaryHeading p,
   .ProjectItem .project-content .projects-desc {
     color: $dark-mode-white;

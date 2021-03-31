@@ -10,6 +10,7 @@ import * as solid from "@fortawesome/free-solid-svg-icons";
 // IMAGES
 import blogImg from "./../../../../assets/images/test-blog-img.jpg";
 import BodyText from "./BodyText/BodyText";
+import { Helmet } from "react-helmet";
 
 const BlogPost = (props) => {
   const { id } = useParams();
@@ -42,36 +43,41 @@ const BlogPost = (props) => {
   };
 
   return (
-    <div className="BlogPost">
-      <FontAwesomeIcon
-        onClick={goBack}
-        className="back-icon"
-        icon={solid.faArrowLeft}
-      />
-      {post ? (
-        <React.Fragment>
-          <div className="post-title">
-            <h1>{post.blogTitle}</h1>
-          </div>
-          <div className="author">
-            <p className="auth-name">
-              <span>{post.author}</span> / <span>{post.dateAdded}</span>
-            </p>
-            <p className="art-views">
-              <span>{post.views}</span> views
-            </p>
-          </div>
-          <div className="img">
-            <img src={blogImg} alt="Class Room" />
-          </div>
-          <div className="post-content">
-            {postText.length > 0
-              ? postText.map((el) => <BodyText text={el} />)
-              : null}
-          </div>
-        </React.Fragment>
-      ) : null}
-    </div>
+    <React.Fragment>
+      <Helmet>
+        <title>{`${post.blogTitle} | ${post.author}`}</title>
+      </Helmet>
+      <div className="BlogPost">
+        <FontAwesomeIcon
+          onClick={goBack}
+          className="back-icon"
+          icon={solid.faArrowLeft}
+        />
+        {post ? (
+          <React.Fragment>
+            <div className="post-title">
+              <h1>{post.blogTitle}</h1>
+            </div>
+            <div className="author">
+              <p className="auth-name">
+                <span>{post.author}</span> / <span>{post.dateAdded}</span>
+              </p>
+              <p className="art-views">
+                <span>{post.views}</span> views
+              </p>
+            </div>
+            <div className="img">
+              <img src={blogImg} alt="Class Room" />
+            </div>
+            <div className="post-content">
+              {postText.length > 0
+                ? postText.map((el) => <BodyText text={el} />)
+                : null}
+            </div>
+          </React.Fragment>
+        ) : null}
+      </div>
+    </React.Fragment>
   );
 };
 

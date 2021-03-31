@@ -1,7 +1,7 @@
 import "./styles/css/styles.css";
 
 import { useState } from "react";
-import { Switch, Route } from "react-router";
+import { Switch, Route, Redirect } from "react-router";
 
 // COMPONENTS
 import Nav from "./components/Nav/Nav";
@@ -29,6 +29,7 @@ function App() {
           <Route path="/blog/:id" component={BlogPost} />
           <Route path="/blog" component={Blog} />
           <Route exact path="/" component={Home} />
+          <Redirect from="/*" to="/" />
         </Switch>
       </div>
       <Footer />

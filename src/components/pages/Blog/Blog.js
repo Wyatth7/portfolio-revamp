@@ -103,17 +103,21 @@ const Blog = (props) => {
       </div>
       <div className="queried-items">{queriedPosts}</div>
       <SubHeading className="subhead-margin" heading="All Posts">
-        {postData.length >= 1
-          ? postData.map((el) => (
-              <BlogItem
-                key={el._id}
-                postId={el._id}
-                title={el.blogTitle}
-                views={el.views}
-                desc={el.description}
-              />
-            ))
-          : null}
+        {postData.length >= 1 ? (
+          postData.map((el) => (
+            <BlogItem
+              key={el._id}
+              postId={el._id}
+              title={el.blogTitle}
+              views={el.views}
+              desc={el.description}
+            />
+          ))
+        ) : (
+          <p className="no-posts">
+            No posts yet, be sure to check back later to read my writings.
+          </p>
+        )}
       </SubHeading>
     </div>
   );
