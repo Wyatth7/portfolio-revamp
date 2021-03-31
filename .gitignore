@@ -9,9 +9,8 @@
 /coverage
 
 # production
-/build
-/server/dist
 /server/config.env
+/src
 
 # misc
 .DS_Store
