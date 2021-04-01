@@ -342,6 +342,7 @@ body {
     margin-bottom: 1rem; }
   .ProjectItem .project-content div {
     display: flex;
+    flex-wrap: wrap;
     margin-right: 0.6rem; }
 
 .ProjectTags {
