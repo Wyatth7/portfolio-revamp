@@ -52,12 +52,13 @@ const Blog = (props) => {
           setQueryData(posts.data.posts);
         } catch (err) {
           console.log(err);
+          setQueryErr(!queryErr);
         }
       }, 500);
 
       return () => clearTimeout(timeout);
     },
-    [searchStr, setQueryData]
+    [searchStr, setQueryData, setQueryErr, queryErr]
   );
 
   let queriedPosts;

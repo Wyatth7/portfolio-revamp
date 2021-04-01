@@ -5,8 +5,6 @@ import ProjectTags from "./ProjectTags/ProjectTags";
 
 // ICONS
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IconName } from "@fortawesome/fontawesome-svg-core";
-import * as solid from "@fortawesome/free-solid-svg-icons";
 
 const ProjectItem = (props) => {
   return (
