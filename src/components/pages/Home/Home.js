@@ -60,10 +60,6 @@ const Home = (props) => {
               title="Learned C#"
               info="In preperation for university classes, I began learning C# and the .NET framework."
             />
-            <TimelineInfo
-              title="Learned Node.js, Express, MongoDB, and Mongoose"
-              info="I began learning server side technologies."
-            />
           </TimeLine>
           <TimeLine date="2020">
             <TimelineInfo
@@ -83,10 +79,6 @@ const Home = (props) => {
             <TimelineInfo
               title="Left EMSCO"
               info="I resigned from my position at EMSCO to focus on school."
-            />
-            <TimelineInfo
-              title="Graduated High School"
-              info="Graduated from Gordon Lee High School."
             />
             <TimelineInfo
               title="Learned Javascript"
