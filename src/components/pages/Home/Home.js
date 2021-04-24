@@ -15,7 +15,7 @@ import TimelineInfo from "./Timeline/TimelineInfo/TimelineInfo";
 import axios from "axios";
 
 const text =
-  "I’m a developer, Computer Science student, and coffee addict. In my free time, when I’m not working on projects, you can find me reading, watching Netflix or spending time with friends and family. If you would like to get a sneak peek of my life, and tech opinions, you can check out my new blog where I write about my personal experiences within the tech world. ";
+  "If you haven't already guessed it, I'm a fullstack web developer who mostly uses Javascript and its surrounding frameworks. As you look around my corner of the interenet, you will not only find information about myself, but you will also recieve full access to my public Github repositories, so, if you find a project that interests you, check it out! And, if you find a bug in the code, just open an issue. ";
 
 const Home = (props) => {
   const [projects, setProjects] = useState([]);

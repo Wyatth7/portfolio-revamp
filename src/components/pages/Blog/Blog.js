@@ -11,7 +11,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import BlogItem from "./BlogItem/BlogItem";
 import Ajax from "../../../utils/ajax";
 
-const text = "Follow along my development journey by reading the posts below.";
+const text =
+  "Get my takes, tips, and tricks in software development by reading the articles below.";
 
 const Blog = (props) => {
   const [postData, setPostData] = useState([]);
