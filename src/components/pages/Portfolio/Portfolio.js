@@ -1,19 +1,62 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 
 // ICONS
-import * as solid from "@fortawesome/free-solid-svg-icons";
+// import * as solid from "@fortawesome/free-solid-svg-icons";
 
 // COMPONENTS
 import MainPage from "../MainPage/MainPage";
 import SubHeading from "./../MainPage/Headings/SubHeading/SubHeading";
 import GitHubBtn from "./GitHubBtn/GitHubBtn";
 import ProjectItem from "./ProjectItem/ProjectItem";
+import axios from "axios";
 
 const text =
   "All my projects are either NPM packages, full stack, or front end web apps. To check out each project, just click on it!";
 
 const Portfolio = (props) => {
+  const [npm, setNpm] = useState([]);
+  const [frontend, setFrontend] = useState([]);
+  const [fullstack, setFullstack] = useState([]);
+  const [other, setOther] = useState([]);
+
+  useEffect(() => {
+    const CALL = async () => {
+      try {
+        const repos = await axios.get("/api/v1/github/repos");
+
+        repos.data.repos.forEach((el) => {
+          switch (el.type) {
+            case "Front End":
+              setStates(setFrontend, el);
+              break;
+            case "Full Stack":
+              setStates(setFullstack, el);
+              break;
+            case "NPM":
+              setStates(setNpm, el);
+
+              break;
+            case "Other":
+              setStates(setOther, el);
+
+              break;
+            default:
+              setStates(setOther, el);
+          }
+        });
+      } catch (err) {
+        console.err("Could not get projects from server.");
+      }
+    };
+
+    CALL();
+  }, [setFrontend, setFullstack, setNpm, setOther]);
+
+  const setStates = (fn, el) => {
+    fn((prev) => [...prev, el]);
+  };
+
   return (
     <div className="Portfolio">
       <Helmet>
@@ -21,48 +64,65 @@ const Portfolio = (props) => {
       </Helmet>
       <MainPage pageHead="Projects" headText={text}>
         <div className="portfolio-content">
-          <SubHeading heading="Full Stack">
-            <ProjectItem
-              link="https://github.com/Wyatth7/portfolio-revamp"
-              title="Personal Portfolio"
-              description="It's what you're looking at right now! Click to see the code."
-              icon={solid.faPortrait}
-              tags={[
-                "React",
-                "Node",
-                "Express",
-                "Mongo",
-                "Typescript",
-                "SASS/SCSS",
-              ]}
-            />
-          </SubHeading>
-          <SubHeading heading="Front End">
-            <ProjectItem
-              link="https://wyatth7.github.io/JSON_Formatter/"
-              title="JSON Formatter"
-              description="JSON Formatter validates and pretty prints a string submitted by the user."
-              icon={solid.faAlignLeft}
-              tags={["React", "SASS/SCSS"]}
-            />
-          </SubHeading>
-          <SubHeading heading="NPM Packages">
-            <ProjectItem
-              link="https://github.com/Wyatth7/querry-array"
-              title="Query Array"
-              description="Query an array with a string. This NPM package is great for filtering search data."
-              icon={solid.faSearch}
-              tags={["Typescript"]}
-            />
-            <ProjectItem
-              link="https://github.com/Wyatth7/handy-date"
-              title="Handy Date"
-              description="A package that removes the hastle of using the Javascript Date class."
-              icon={solid.faClock}
-              tags={["Typescript"]}
-            />
+          {fullstack.length !== 0 ? (
+            <SubHeading heading="Full Stack">
+              {fullstack.map((el) => (
+                <ProjectItem
+                  link={el.homepage}
+                  title={el.title}
+                  description={el.description}
+                  tags={el.topics}
+                  key={el.title}
+                />
+              ))}
+            </SubHeading>
+          ) : null}
+
+          {frontend.length !== 0 ? (
+            <SubHeading heading="Front End">
+              {frontend.map((el) => (
+                <ProjectItem
+                  link={el.homepage}
+                  title={el.title}
+                  description={el.description}
+                  tags={el.topics}
+                  key={el.title}
+                />
+              ))}
+            </SubHeading>
+          ) : null}
+
+          {npm.length !== 0 ? (
+            <SubHeading heading="NPM">
+              {npm.map((el) => (
+                <ProjectItem
+                  link={el.url}
+                  title={el.title}
+                  description={el.description}
+                  tags={el.topics}
+                  key={el.title}
+                />
+              ))}
+            </SubHeading>
+          ) : null}
+
+          {other.length !== 0 ? (
+            <SubHeading heading="Other">
+              {other.map((el) => (
+                <ProjectItem
+                  link={el.url}
+                  title={el.title}
+                  description={el.description}
+                  tags={el.topics}
+                  key={el.title}
+                />
+              ))}
+            </SubHeading>
+          ) : null}
+
+          <div className="github-btn">
             <GitHubBtn />
-          </SubHeading>
+          </div>
         </div>
       </MainPage>
     </div>

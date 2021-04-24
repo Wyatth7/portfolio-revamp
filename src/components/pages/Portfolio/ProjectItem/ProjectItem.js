@@ -4,7 +4,7 @@ import React from "react";
 import ProjectTags from "./ProjectTags/ProjectTags";
 
 // ICONS
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ProjectItem = (props) => {
   return (
@@ -14,9 +14,7 @@ const ProjectItem = (props) => {
       rel="noreferrer"
       className="ProjectItem"
     >
-      <div className="project-img">
-        <FontAwesomeIcon icon={props.icon} />
-      </div>
+      <div className="project-img"></div>
       <div className="project-content">
         <h3 className="project-title">{props.title}</h3>
         <p className="projects-desc">{props.description}</p>

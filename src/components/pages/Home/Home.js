@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 // ICONS
@@ -12,48 +12,83 @@ import ProjectItem from "./../Portfolio/ProjectItem/ProjectItem";
 import { Helmet } from "react-helmet";
 import TimeLine from "./Timeline/Timeline";
 import TimelineInfo from "./Timeline/TimelineInfo/TimelineInfo";
+import axios from "axios";
 
 const text =
   "I’m a developer, Computer Science student, and coffee addict. In my free time, when I’m not working on projects, you can find me reading, watching Netflix or spending time with friends and family. If you would like to get a sneak peek of my life, and tech opinions, you can check out my new blog where I write about my personal experiences within the tech world. ";
 
 const Home = (props) => {
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    const call = async () => {
+      try {
+        const repos = await axios.get("/api/v1/github/repos");
+
+        let projectArr = [];
+
+        repos.data.repos.forEach((el) => {
+          if (el.type === "Full Stack") {
+            projectArr.push(el);
+          }
+          if (el.type === "Front End") {
+            projectArr.push(el);
+          }
+        });
+
+        setProjects(
+          projectArr.sort((a, b) => {
+            if (a.type < b.type) {
+              return 1;
+            } else if (a.type > b.type) {
+              return -1;
+            } else {
+              return 0;
+            }
+          })
+        );
+      } catch (err) {
+        console.err("Could not get projects from server.");
+      }
+    };
+
+    call();
+  }, [setProjects]);
+
   return (
     <div className="Home">
       <Helmet>
         <title>Home | Wyatt Hardin</title>
       </Helmet>
       <MainPage pageHead="Hey, I'm Wyatt Hardin" headText={text}>
-        <SubHeading heading="Projects">
-          <ProjectItem
-            link="https://wyatth7.github.io/JSON_Formatter/"
-            title="JSON Formatter"
-            description="JSON Formatter validates and pretty prints a string submitted by the user."
-            icon={solid.faAlignLeft}
-            tags={["React", "SASS/SCSS"]}
-          />
-          <ProjectItem
-            link="https://github.com/Wyatth7/querry-array"
-            title="Query Array"
-            description="Query an array with a string. This NPM package is great for filtering search data."
-            icon={solid.faSearch}
-            tags={["Typescript"]}
-          />
-          <ProjectItem
-            link="https://github.com/Wyatth7/handy-date"
-            title="Handy Date"
-            description="A package that removes the hastle of using the Javascript Date class."
-            icon={solid.faClock}
-            tags={["Typescript"]}
-          />
-          <NavLink className="show-more" to="/projects">
-            <p>
-              See More{" "}
-              <span>
-                <FontAwesomeIcon icon={solid.faChevronDown} />
-              </span>
-            </p>
-          </NavLink>
-        </SubHeading>
+        {projects ? (
+          <SubHeading heading="Projects">
+            {projects.map((el, index) => {
+              if (index < 3) {
+                return (
+                  <ProjectItem
+                    link={el.homepage}
+                    title={el.title}
+                    description={el.description}
+                    tags={el.topics}
+                    key={el.title}
+                  />
+                );
+              } else {
+                return null;
+              }
+            })}
+            <NavLink className="show-more" to="/projects">
+              <p>
+                See More{" "}
+                <span>
+                  <FontAwesomeIcon icon={solid.faChevronDown} />
+                </span>
+              </p>
+            </NavLink>
+          </SubHeading>
+        ) : null}
+
         <SubHeading heading="Timeline">
           <TimeLine date="2021">
             <TimelineInfo

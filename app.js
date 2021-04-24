@@ -1,6 +1,7 @@
 const path = require("path");
 const express = require("express");
 const blogRoutes = require("./server/dist/routes/blogRoutes");
+const projectRoutes = require("./server/dist/routes/project");
 
 const app = express();
 
@@ -8,6 +9,7 @@ app.use(express.static(path.join(__dirname, "./build")));
 app.use(express.json());
 
 app.use("/api/v1/blog/posts", blogRoutes);
+app.use("/api/v1/github", projectRoutes);
 
 app.use((req, res, next) => {
   res.sendFile(path.join(__dirname, "./build", "index.html"));

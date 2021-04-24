@@ -1,0 +1,46 @@
+.Editor {
+  width: 100%;
+  border: 2px solid $black;
+  border-radius: 3px;
+
+  &__tools,
+  &__textarea {
+    padding: 2rem;
+  }
+
+  &__tools {
+    display: flex;
+    border-bottom: 2px solid $black;
+
+    div:not(:last-of-type) {
+      margin-right: 2rem;
+    }
+
+    .edit-icons {
+      cursor: pointer;
+      margin-right: 0.8rem;
+      font-size: 2rem;
+      color: $secondary-font;
+      transition: all 0.1s;
+
+      &:hover {
+        color: $black;
+      }
+    }
+
+    &--font-changers {
+      display: flex;
+    }
+  }
+
+  &__textarea {
+    outline: none;
+    padding: 1.5rem;
+    width: 100%;
+    min-height: 20rem;
+    resize: vertical;
+    font: inherit;
+    font-size: 1.7rem;
+    border: none;
+  }
+}
