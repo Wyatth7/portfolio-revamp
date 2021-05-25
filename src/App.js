@@ -12,6 +12,7 @@ import Footer from "./components/Footer/Footer";
 import ScrollToTop from "./components/hoc/ScrollToTop/ScrollToTop";
 import BlogPost from "./components/pages/Blog/BlogPost/BlogPost";
 import PostEditor from "./components/pages/Blog/PostEditor/PostEditor";
+import ProjectLoader from "./components/animations/ProjectLoader/ProjectLoader";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -30,6 +31,7 @@ function App() {
           <Route path="/blog/:id" component={BlogPost} />
           <Route path="/blog" component={Blog} />
           <Route path="/createPost" component={PostEditor} />
+          <Route path="/loader" component={ProjectLoader} />
           <Route exact path="/" component={Home} />
           <Redirect from="/*" to="/" />
         </Switch>

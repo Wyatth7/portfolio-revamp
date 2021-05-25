@@ -430,3 +430,19 @@ body {
   .TimelineInfo .info p {
     margin-top: 0.2rem;
     font-size: 1.3rem; }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+.ProjectLoader {
+  width: fit-content;
+  height: fit-content;
+  animation: spin 2.5s linear infinite; }
+  .ProjectLoader .github-loader-icon {
+    background-color: #fff;
+    font-size: 4rem;
+    clip-path: circle();
+    border: none; }
