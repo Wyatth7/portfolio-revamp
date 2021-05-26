@@ -13,12 +13,14 @@ import { Helmet } from "react-helmet";
 import TimeLine from "./Timeline/Timeline";
 import TimelineInfo from "./Timeline/TimelineInfo/TimelineInfo";
 import axios from "axios";
+import ProjectLoader from "../../animations/ProjectLoader/ProjectLoader";
 
 const text =
   "If you haven't already guessed it, I'm a fullstack web developer who mostly uses Javascript and its surrounding frameworks. As you look around my corner of the interenet, you will not only find information about myself, but you will also recieve full access to my public Github repositories, so, if you find a project that interests you, check it out! And, if you find a bug in the code, just open an issue. ";
 
 const Home = (props) => {
   const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const call = async () => {
@@ -47,13 +49,14 @@ const Home = (props) => {
             }
           })
         );
+        setLoading(false);
       } catch (err) {
         console.err("Could not get projects from server.");
       }
     };
 
     call();
-  }, [setProjects]);
+  }, [setProjects, setLoading]);
 
   return (
     <div className="Home">
@@ -78,14 +81,20 @@ const Home = (props) => {
                 return null;
               }
             })}
-            <NavLink className="show-more" to="/projects">
-              <p>
-                See More{" "}
-                <span>
-                  <FontAwesomeIcon icon={solid.faChevronDown} />
-                </span>
-              </p>
-            </NavLink>
+            {loading ? (
+              <div className="loader">
+                <ProjectLoader />
+              </div>
+            ) : (
+              <NavLink className="show-more" to="/projects">
+                <p>
+                  See More{" "}
+                  <span>
+                    <FontAwesomeIcon icon={solid.faChevronDown} />
+                  </span>
+                </p>
+              </NavLink>
+            )}
           </SubHeading>
         ) : null}
 

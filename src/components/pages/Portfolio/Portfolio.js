@@ -10,6 +10,7 @@ import SubHeading from "./../MainPage/Headings/SubHeading/SubHeading";
 import GitHubBtn from "./GitHubBtn/GitHubBtn";
 import ProjectItem from "./ProjectItem/ProjectItem";
 import axios from "axios";
+import ProjectLoader from "../../animations/ProjectLoader/ProjectLoader";
 
 const text =
   "All my projects are either NPM packages, full stack, or front end web apps. To check out each project, just click on it!";
@@ -19,6 +20,7 @@ const Portfolio = (props) => {
   const [frontend, setFrontend] = useState([]);
   const [fullstack, setFullstack] = useState([]);
   const [other, setOther] = useState([]);
+  const [loader, setLoader] = useState(true);
 
   useEffect(() => {
     const CALL = async () => {
@@ -45,13 +47,15 @@ const Portfolio = (props) => {
               setStates(setOther, el);
           }
         });
+
+        setLoader(false);
       } catch (err) {
         console.err("Could not get projects from server.");
       }
     };
 
     CALL();
-  }, [setFrontend, setFullstack, setNpm, setOther]);
+  }, [setFrontend, setFullstack, setNpm, setOther, setLoader]);
 
   const setStates = (fn, el) => {
     fn((prev) => [...prev, el]);
@@ -120,9 +124,15 @@ const Portfolio = (props) => {
             </SubHeading>
           ) : null}
 
-          <div className="github-btn">
-            <GitHubBtn />
-          </div>
+          {loader ? (
+            <div className="portfolio-loader">
+              <ProjectLoader />
+            </div>
+          ) : (
+            <div className="github-btn">
+              <GitHubBtn />
+            </div>
+          )}
         </div>
       </MainPage>
     </div>

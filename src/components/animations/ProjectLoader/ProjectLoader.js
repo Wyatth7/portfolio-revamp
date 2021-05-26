@@ -6,6 +6,9 @@ const ProjectLoader = (props) => {
   return (
     <div className="ProjectLoader">
       <FontAwesomeIcon className="github-loader-icon" icon={brands.faGithub} />
+      <p className="loading-text">
+        Loading<span className="dots"></span>
+      </p>
     </div>
   );
 };

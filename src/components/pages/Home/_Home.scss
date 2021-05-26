@@ -1,4 +1,11 @@
 .Home {
+  .loader {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .show-more {
     text-align: center;
     text-decoration: none;
