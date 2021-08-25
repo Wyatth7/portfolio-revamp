@@ -28,6 +28,12 @@ class Ajax {
   static async queryWithString(string) {
     return await this.callServer(`blog/posts/query/${string}`, "get");
   }
+
+  static async getHeaderData(string) {
+    return await this.callServer(`/headers/getHeader`, "get", {
+      page: `${string}`,
+    });
+  }
 }
 
 export default Ajax;

@@ -15,16 +15,28 @@ import TimelineInfo from "./Timeline/TimelineInfo/TimelineInfo";
 import axios from "axios";
 import ProjectLoader from "../../animations/ProjectLoader/ProjectLoader";
 
-const text =
-  "If you haven't already guessed it, I'm a fullstack web developer who mostly uses Javascript and its surrounding frameworks. As you look around my corner of the interenet, you will not only find information about myself, but you will also recieve full access to my public Github repositories, so, if you find a project that interests you, check it out! And, if you find a bug in the code, just open an issue. ";
+// const text =
+//   "If you haven't already guessed it, I'm a fullstack web developer who mostly uses Javascript and its surrounding frameworks. As you look around my corner of the internet, you will not only find information about myself, but you will also recieve full access to my public Github repositories, so, if you find a project that interests you, check it out! And, if you find a bug in the code, just open an issue. ";
 
 const Home = (props) => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [text, setText] = useState("");
+  const [title, setTitle] = useState("");
+  const [timeline, setTimeline] = useState([]);
 
   useEffect(() => {
     const call = async () => {
       try {
+        const pageHeader = await axios.get("/api/v1/headers/getHeader", {
+          params: {
+            page: "home",
+          },
+        });
+
+        setTitle(pageHeader.data.data.title);
+        setText(pageHeader.data.data.text);
+
         const repos = await axios.get("/api/v1/github/repos");
 
         let projectArr = [];
@@ -51,19 +63,20 @@ const Home = (props) => {
         );
         setLoading(false);
       } catch (err) {
-        console.err("Could not get projects from server.");
+        console.error("Could not get projects from server.");
+        // console.err("Could not get projects from server.");
       }
     };
 
     call();
-  }, [setProjects, setLoading]);
+  }, [setProjects, setLoading, setText, setTitle]);
 
   return (
     <div className="Home">
       <Helmet>
         <title>Home | Wyatt Hardin</title>
       </Helmet>
-      <MainPage pageHead="Hey, I'm Wyatt Hardin" headText={text}>
+      <MainPage pageHead={title} headText={text}>
         {projects ? (
           <SubHeading heading="Projects">
             {projects.map((el, index) => {
@@ -99,6 +112,17 @@ const Home = (props) => {
         ) : null}
 
         <SubHeading heading="Timeline">
+          {timeline && timeline.length > 0 ? (
+            <TimeLine date="2021">
+              <TimelineInfo
+                title="Learned C#"
+                info="In preperation for university classes, I began learning C# and the .NET framework."
+              />
+            </TimeLine>
+          ) : (
+            <p>Data not found!!!</p>
+          )}
+
           <TimeLine date="2021">
             <TimelineInfo
               title="Learned C#"

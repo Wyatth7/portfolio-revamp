@@ -1,8 +1,12 @@
 import { Octokit } from "@octokit/core";
-import { RequestHandler } from "express";
+import { Request, Response, NextFunction } from "express";
 import sendRes from "../utils/errHandler";
 
-export const gitHubData: RequestHandler = async (req, res, next) => {
+export const gitHubData = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   try {
     // const octokit = new Octokit({
     //   auth: "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",
@@ -19,7 +23,7 @@ export const gitHubData: RequestHandler = async (req, res, next) => {
       sendRes(res, 400, "Could not get user repositories");
     }
 
-    console.log(data.data);
+    // console.log(data.data);
 
     const getType = (topics: string[] | undefined) => {
       if (topics?.includes("node")) {

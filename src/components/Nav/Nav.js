@@ -4,6 +4,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as solid from "@fortawesome/free-solid-svg-icons";
 import NavLinks from "./NavLinks/NavLinks";
+import ExternalNavLink from "./NavLinks/ExternalNavLink/ExternalNavLink";
 
 const Nav = (props) => {
   return (
@@ -17,8 +18,8 @@ const Nav = (props) => {
         </button>
         <div className="links">
           <NavLinks title="Home" to="/" />
-          <NavLinks title="Blog" to="/blog" />
           <NavLinks title="Projects" to="/projects" />
+          <ExternalNavLink title="GitHub" to="https://github.com/Wyatth7" />
         </div>
       </div>
     </div>

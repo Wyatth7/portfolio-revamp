@@ -50,7 +50,7 @@ const Portfolio = (props) => {
 
         setLoader(false);
       } catch (err) {
-        console.err("Could not get projects from server.");
+        console.error("Could not get projects from server.");
       }
     };
 
