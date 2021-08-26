@@ -1,5 +1,6 @@
 import { RequestHandler } from "express";
 import sendRes from "../utils/errHandler";
+import { sortArray } from "../utils/sortArray";
 import TimeLineModel from "./../models/TimeLineModel";
 
 export const createYear: RequestHandler = async (req, res, next) => {
@@ -24,21 +25,18 @@ export const createYear: RequestHandler = async (req, res, next) => {
 export const getAllYears: RequestHandler = async (req, res, next) => {
   try {
     const years = await TimeLineModel.find();
-    console.log(years);
+    // console.log(years);
 
-    const arrays: object = {};
+    // const arrays: object = {};
 
-    years.forEach((el) => {
-      if (arrays.hasOwnProperty(el.year)) {
-        arrays[el.year].push(el);
-      }
-    });
+    const sortArr = sortArray(years);
 
     res.status(200).json({
       message: "success",
-      data: years,
+      data: sortArr,
     });
   } catch (err) {
+    console.log(err);
     sendRes(res, 400, "Could not get year data.");
   }
 };
