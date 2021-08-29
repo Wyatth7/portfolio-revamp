@@ -19,14 +19,19 @@ interface ITimeLine {
 
 export const sortArray = (array: any) => {
   let yearObj: ILooseObject = {};
+  let lowLevelCount = 0;
 
   for (
     let highLevelArray = 0;
     highLevelArray < array.length;
     highLevelArray++
   ) {
-    const year = array[highLevelArray].year;
-    let lowLevelCount = 0;
+    let year = array[highLevelArray].year;
+
+    // if (Object.keys(yearObj).includes(year)) {
+    //   lowLevelCount++;
+    //   continue;
+    // }
 
     for (
       let lowLevelArray = lowLevelCount;
@@ -34,19 +39,24 @@ export const sortArray = (array: any) => {
       lowLevelArray++
     ) {
       if (
+        // the current high level year = low level year
         year === array[lowLevelArray].year &&
+        // if yearObj has a key with the current year
         Object.keys(yearObj).includes(year)
       ) {
+        // if both conditions are true,
+        // the object will be pushed to the array
         yearObj[array[lowLevelArray].year].push(array[lowLevelArray]);
+        break;
       } else {
         yearObj[`${array[lowLevelArray].year}`] = [array[lowLevelArray]];
+        break;
+        // console.log(array[lowLevelArray]);
       }
-
-      lowLevelCount++;
     }
+    lowLevelCount++;
   }
 
-  console.log(yearObj);
-
+  // console.log(array)
   return yearObj;
 };
