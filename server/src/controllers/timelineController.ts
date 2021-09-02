@@ -25,9 +25,6 @@ export const createYear: RequestHandler = async (req, res, next) => {
 export const getAllYears: RequestHandler = async (req, res, next) => {
   try {
     const years = await TimeLineModel.find();
-    // console.log(years);
-
-    // const arrays: object = {};
 
     const sortArr = sortArray(years);
 

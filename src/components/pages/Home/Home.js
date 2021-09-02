@@ -14,6 +14,7 @@ import TimeLine from "./Timeline/Timeline";
 import TimelineInfo from "./Timeline/TimelineInfo/TimelineInfo";
 import axios from "axios";
 import ProjectLoader from "../../animations/ProjectLoader/ProjectLoader";
+// import breakDownTimeline from "../../../utils/breakDownTimeline";
 
 // const text =
 //   "If you haven't already guessed it, I'm a fullstack web developer who mostly uses Javascript and its surrounding frameworks. As you look around my corner of the internet, you will not only find information about myself, but you will also recieve full access to my public Github repositories, so, if you find a project that interests you, check it out! And, if you find a bug in the code, just open an issue. ";
@@ -23,7 +24,7 @@ const Home = (props) => {
   const [loading, setLoading] = useState(true);
   const [text, setText] = useState("");
   const [title, setTitle] = useState("");
-  const [timeline, setTimeline] = useState([]);
+  // const [timeline, setTimeline] = useState({});
 
   useEffect(() => {
     const call = async () => {
@@ -34,6 +35,10 @@ const Home = (props) => {
           },
         });
 
+        // const timelineData = await axios.get("/api/v1/timeline/getAllYears");
+        // console.log(timelineData.data.data);
+
+        // setTimeline(timelineData.data.data);
         setTitle(pageHeader.data.data.title);
         setText(pageHeader.data.data.text);
 
@@ -112,21 +117,34 @@ const Home = (props) => {
         ) : null}
 
         <SubHeading heading="Timeline">
-          {timeline && timeline.length > 0 ? (
-            <TimeLine date="2021">
-              <TimelineInfo
-                title="Learned C#"
-                info="In preperation for university classes, I began learning C# and the .NET framework."
-              />
-            </TimeLine>
+          {/* {timeline ? (
+            Object.keys(timeline).map((el) => {
+              const arrayData = breakDownTimeline(timeline, el);
+              return (
+                <TimeLine date={el}>
+                  {arrayData.map((el) => (
+                    <TimelineInfo
+                      title="Learned C#"
+                      info="In preperation for university classes, I began learning C# and the .NET framework."
+                    />
+                  ))}
+                </TimeLine>
+              );
+            })
           ) : (
-            <p>Data not found!!!</p>
-          )}
+            // <TimeLine date="2021">
+            //   <TimelineInfo
+            //     title="Learned C#"
+            //     info="In preperation for university classes, I began learning C# and the .NET framework."
+            //   />
+            // </TimeLine>
+            <p>Could not load data.</p>
+          )} */}
 
           <TimeLine date="2021">
             <TimelineInfo
               title="Learned C#"
-              info="In preperation for university classes, I began learning C# and the .NET framework."
+              info="In preparation for university classes, I began learning C# and the .NET framework."
             />
           </TimeLine>
           <TimeLine date="2020">
@@ -142,11 +160,11 @@ const Home = (props) => {
           <TimeLine date="2019">
             <TimelineInfo
               title="Learned Java"
-              info="I started learning Java (Udemy) in preperation for college level programming classes."
+              info="I started learning Java via Udemy in preperation for university classes."
             />
             <TimelineInfo
               title="Left EMSCO"
-              info="I resigned from my position at EMSCO to focus on school."
+              info="I resigned from my position at EMSCO to focus on my education."
             />
             <TimelineInfo
               title="Learned Javascript"
