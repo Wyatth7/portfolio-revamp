@@ -15,12 +15,13 @@
       cursor: pointer;
       height: 3.5rem;
       width: 3.5rem;
-      background-color: $theme-btn;
-      border: 1px solid $theme-btn;
+      background-color: $white;
+      border: 1px solid $black;
       border-radius: 4px;
       display: flex;
       justify-content: center;
       align-items: center;
+      transition: all 0.2s;
 
       .theme-icon {
         font-size: 1.5rem;

@@ -13,11 +13,11 @@ const Nav = (props) => {
         <button onClick={() => props.themeChange()} className="theme-shift">
           <FontAwesomeIcon
             className="theme-icon"
-            icon={props.isDark ? solid.faSun : solid.faMoon}
+            icon={props.isDark ? solid.faMoon : solid.faSun}
           />
         </button>
         <div className="links">
-          <NavLinks title="Home" to="/" />
+          <NavLinks exact title="Home" to="/" />
           <NavLinks title="Projects" to="/projects" />
           <ExternalNavLink title="GitHub" to="https://github.com/Wyatth7" />
         </div>

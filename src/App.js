@@ -6,12 +6,9 @@ import { Switch, Route, Redirect } from "react-router";
 // COMPONENTS
 import Nav from "./components/Nav/Nav";
 import Home from "./components/pages/Home/Home";
-import Blog from "./components/pages/Blog/Blog";
 import Portfolio from "./components/pages/Portfolio/Portfolio";
 import Footer from "./components/Footer/Footer";
 import ScrollToTop from "./components/hoc/ScrollToTop/ScrollToTop";
-import BlogPost from "./components/pages/Blog/BlogPost/BlogPost";
-import PostEditor from "./components/pages/Blog/PostEditor/PostEditor";
 import ProjectLoader from "./components/animations/ProjectLoader/ProjectLoader";
 
 function App() {
@@ -22,18 +19,15 @@ function App() {
   };
 
   return (
-    <div className={`App ${darkMode ? "dark-mode" : ""}`}>
+    <div className={`App ${darkMode ? "" : "dark-mode"}`}>
       <Nav themeChange={toDarkMode} isDark={darkMode} />
       <div className="pages">
         <ScrollToTop />
         <Switch>
           <Route path="/projects" component={Portfolio} />
-          <Route path="/blog/:id" component={BlogPost} />
-          <Route path="/blog" component={Blog} />
-          <Route path="/createPost" component={PostEditor} />
           <Route path="/loader" component={ProjectLoader} />
           <Route exact path="/" component={Home} />
-          <Redirect from="/*" to="/" />
+          <Redirect exact from="/*" to="/" />
         </Switch>
       </div>
       <Footer />

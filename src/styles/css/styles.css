@@ -14,18 +14,28 @@ body {
   box-sizing: border-box; }
 
 .dark-mode {
-  background-color: #000; }
+  background-color: #22272d; }
   .dark-mode .Nav {
-    background-color: #000; }
-    .dark-mode .Nav .wrapper .theme-shift {
-      background-color: #000;
+    background-color: #22272d; }
+    .dark-mode .Nav .NavLinks {
       color: #fff; }
-  .dark-mode h1,
-  .dark-mode h2,
+      .dark-mode .Nav .NavLinks:hover {
+        color: #7579e7; }
+    .dark-mode .Nav .active-nav-link {
+      color: #7579e7; }
+    .dark-mode .Nav .wrapper .theme-shift {
+      background-color: #22272d;
+      color: #7579e7;
+      border-color: #7579e7;
+      transition: all 0.2s; }
+      .dark-mode .Nav .wrapper .theme-shift:hover {
+        color: #7579e7; }
   .dark-mode h3,
   .dark-mode h4,
+  .dark-mode h1,
+  .dark-mode h2 {
+    color: #7579e7; }
   .dark-mode a,
-  .dark-mode p,
   .dark-mode .Footer a,
   .dark-mode .Home .show-more p,
   .dark-mode .GitHubBtn a p,
@@ -36,7 +46,7 @@ body {
   .dark-mode .ProjectItem .project-content .project-title,
   .dark-mode .ProjectItem .project-img,
   .dark-mode .icon {
-    color: #fff; }
+    color: #7579e7; }
   .dark-mode .Blog .search-posts,
   .dark-mode .Blog .search-posts input {
     border-color: #1f2937;
@@ -50,13 +60,15 @@ body {
   .dark-mode .ProjectItem .project-content .projects-desc {
     color: #dfdbdb; }
   .dark-mode .ProjectTags {
-    background-color: #000; }
+    background-color: #22272d; }
     .dark-mode .ProjectTags p {
       color: #fff; }
   .dark-mode .ProjectItem {
     border-color: #4b4f53; }
     .dark-mode .ProjectItem:hover {
       box-shadow: none; }
+  .dark-mode .active-nav-link {
+    color: #7579e7; }
   .dark-mode ::placeholder {
     color: #fff; }
 
@@ -116,12 +128,13 @@ body {
       cursor: pointer;
       height: 3.5rem;
       width: 3.5rem;
-      background-color: #e5e7eb;
-      border: 1px solid #e5e7eb;
+      background-color: #fff;
+      border: 1px solid #000;
       border-radius: 4px;
       display: flex;
       justify-content: center;
-      align-items: center; }
+      align-items: center;
+      transition: all 0.2s; }
       .Nav .wrapper .theme-shift .theme-icon {
         font-size: 1.5rem; }
     .Nav .wrapper .links {
@@ -171,7 +184,13 @@ body {
   width: 100%;
   font-size: 1.6rem;
   color: #000;
-  text-decoration: none; }
+  text-decoration: none;
+  transition: all 0.2s; }
+  .NavLinks:hover {
+    color: #7579e7; }
+
+.active-nav-link {
+  color: #7579e7; }
 
 .Footer {
   padding: 1rem 2.5rem 0 2.5rem; }
@@ -369,9 +388,9 @@ body {
   border: 1px solid #e5e7eb;
   border-radius: 3px;
   text-decoration: none;
-  transition: all 0.1s; }
+  transition: all 0.2s; }
   .ProjectItem:hover {
-    box-shadow: 1px 2px 2px #e5e7eb; }
+    border-color: #7579e7; }
   .ProjectItem .project-img {
     margin-right: 2rem;
     display: flex;

@@ -16,25 +16,45 @@ body {
 }
 
 .dark-mode {
-  background-color: $black;
+  background-color: $dark-mode-main;
 
   .Nav {
-    background-color: $black;
+    background-color: $dark-mode-main;
+
+    .NavLinks {
+      color: $white;
+
+      &:hover {
+        color: $theme-btn-secondary;
+      }
+    }
+
+    .active-nav-link {
+      color: $theme-btn-secondary;
+    }
 
     .wrapper {
       .theme-shift {
-        background-color: $black;
-        color: $white;
+        background-color: $dark-mode-main;
+        color: $theme-btn-secondary;
+        border-color: $theme-btn-secondary;
+        transition: all 0.2s;
+
+        &:hover {
+          color: $theme-btn-secondary;
+        }
       }
     }
   }
 
-  h1,
-  h2,
   h3,
   h4,
+  h1,
+  h2 {
+    color: $theme-btn-secondary;
+  }
+
   a,
-  p,
   .Footer a,
   .Home .show-more p,
   .GitHubBtn a p,
@@ -45,7 +65,7 @@ body {
   .ProjectItem .project-content .project-title,
   .ProjectItem .project-img,
   .icon {
-    color: $white;
+    color: $theme-btn-secondary;
   }
 
   .Blog .search-posts,
@@ -67,7 +87,7 @@ body {
   }
 
   .ProjectTags {
-    background-color: $black;
+    background-color: $dark-mode-main;
 
     p {
       color: $white;
@@ -79,6 +99,10 @@ body {
     &:hover {
       box-shadow: none;
     }
+  }
+
+  .active-nav-link {
+    color: $theme-btn-secondary;
   }
 
   ::placeholder {

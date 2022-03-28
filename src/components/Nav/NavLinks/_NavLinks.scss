@@ -3,4 +3,13 @@
   font-size: 1.6rem;
   color: $black;
   text-decoration: none;
+  transition: all 0.2s;
+
+  &:hover {
+    color: $theme-btn-secondary;
+  }
+}
+
+.active-nav-link {
+  color: $theme-btn-secondary;
 }
