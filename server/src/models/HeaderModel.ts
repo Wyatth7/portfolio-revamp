@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-interface IHeaderModel extends mongoose.Document {
+export interface IHeaderModel extends mongoose.Document {
   page: string;
   header: string;
   text: string;

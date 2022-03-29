@@ -29,7 +29,7 @@ const Home = (props) => {
   useEffect(() => {
     const call = async () => {
       try {
-        const pageHeader = await axios.get("/api/v1/headers/getHeader", {
+        const pageHeader = await axios.get("/api/v1/pageText/getPageText", {
           params: {
             page: "home",
           },
@@ -39,8 +39,8 @@ const Home = (props) => {
         // console.log(timelineData.data.data);
 
         // setTimeline(timelineData.data.data);
-        setTitle(pageHeader.data.data.title);
-        setText(pageHeader.data.data.text);
+        setTitle(pageHeader.data.data.pageTitle);
+        setText(pageHeader.data.data.pageText);
 
         const repos = await axios.get("/api/v1/github/repos");
 

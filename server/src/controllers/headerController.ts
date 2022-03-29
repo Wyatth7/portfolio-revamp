@@ -1,6 +1,6 @@
 import { RequestHandler, Request, Response, NextFunction } from "express";
 import sendRes from "../utils/errHandler";
-import HeaderModel from "./../models/HeaderModel";
+import HeaderModel, { IHeaderModel } from "./../models/HeaderModel";
 
 export const createHeader = async (
   req: Request,
@@ -32,13 +32,13 @@ export const getHeader = async (
   next: NextFunction
 ) => {
   try {
-    const header = await HeaderModel.findOne({ page: req.query.page });
+    // const header = await HeaderModel.findOne({ page: req.query.page });
 
     // console.log(req.query.page);
 
     res.status(200).json({
       status: "Success",
-      data: header,
+      // data: header,
     });
   } catch (err) {
     sendRes(res, 400, "Could not get header data.");
