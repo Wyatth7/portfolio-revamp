@@ -6,16 +6,26 @@
   a {
     padding: 0.5rem 1rem;
     text-decoration: none;
-    border: 1px solid $theme-btn;
+    border: 1px solid $theme-btn-secondary;
     border-radius: 3px;
+    transition: all 0.2s;
 
     p {
       font-size: 1.7rem;
-      color: $black;
+      color: $theme-btn-secondary;
       margin: auto 0;
+      transition: all 0.2s;
 
       span {
         font-size: 1.7rem;
+      }
+    }
+
+    &:hover {
+      background-color: $theme-btn-secondary;
+
+      p {
+        color: $white;
       }
     }
   }

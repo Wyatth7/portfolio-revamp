@@ -20,33 +20,43 @@ body {
     .dark-mode .Nav .NavLinks {
       color: #fff; }
       .dark-mode .Nav .NavLinks:hover {
-        color: #7579e7; }
+        color: #2666cf; }
     .dark-mode .Nav .active-nav-link {
-      color: #7579e7; }
+      color: #2666cf; }
     .dark-mode .Nav .wrapper .theme-shift {
       background-color: #22272d;
-      color: #7579e7;
-      border-color: #7579e7;
+      color: #2666cf;
+      border-color: #2666cf;
       transition: all 0.2s; }
       .dark-mode .Nav .wrapper .theme-shift:hover {
-        color: #7579e7; }
-  .dark-mode h3,
+        color: #2666cf; }
+  .dark-mode .ProjectLoader {
+    color: #2666cf; }
   .dark-mode h4,
-  .dark-mode h1,
-  .dark-mode h2 {
-    color: #7579e7; }
+  .dark-mode h1 {
+    color: #2666cf; }
+  .dark-mode h3 {
+    color: #61b15a; }
+  .dark-mode .show-more-paragraph {
+    color: #fff; }
+  .dark-mode h2,
   .dark-mode a,
   .dark-mode .Footer a,
-  .dark-mode .Home .show-more p,
   .dark-mode .GitHubBtn a p,
   .dark-mode .Blog .search-posts,
   .dark-mode .Blog .search-posts input,
   .dark-mode .BlogPost .back-icon,
+  .dark-mode .home .show-more p,
   .dark-mode .BlogItem .title-views h3,
-  .dark-mode .ProjectItem .project-content .project-title,
   .dark-mode .ProjectItem .project-img,
   .dark-mode .icon {
-    color: #7579e7; }
+    color: #fff; }
+  .dark-mode .GitHubBtn a {
+    border-color: #fff; }
+    .dark-mode .GitHubBtn a:hover {
+      border-color: #2666cf; }
+  .dark-mode .ProjectItem .project-content .project-title {
+    color: #2666cf; }
   .dark-mode .Blog .search-posts,
   .dark-mode .Blog .search-posts input {
     border-color: #1f2937;
@@ -68,7 +78,9 @@ body {
     .dark-mode .ProjectItem:hover {
       box-shadow: none; }
   .dark-mode .active-nav-link {
-    color: #7579e7; }
+    color: #2666cf; }
+  .dark-mode .Footer a:hover {
+    color: #2666cf; }
   .dark-mode ::placeholder {
     color: #fff; }
 
@@ -187,10 +199,10 @@ body {
   text-decoration: none;
   transition: all 0.2s; }
   .NavLinks:hover {
-    color: #7579e7; }
+    color: #2666cf; }
 
 .active-nav-link {
-  color: #7579e7; }
+  color: #2666cf; }
 
 .Footer {
   padding: 1rem 2.5rem 0 2.5rem; }
@@ -203,7 +215,10 @@ body {
       margin-bottom: 0.5rem;
       font-size: 1.6rem;
       text-decoration: none;
-      color: #000; }
+      color: #000;
+      transition: all 0.2s; }
+      .Footer div a:hover {
+        color: #2666cf; }
 
 @media only screen and (min-width: 770px) {
   .Footer {
@@ -227,8 +242,10 @@ body {
   text-align: center;
   text-decoration: none; }
   .Home .show-more p {
-    color: #000;
-    font-weight: 500; }
+    font-weight: 500;
+    transition: all 0.2s; }
+    .Home .show-more p:hover {
+      color: #2666cf; }
 
 .SubHeading h2 {
   font-size: 2.2rem; }
@@ -390,7 +407,9 @@ body {
   text-decoration: none;
   transition: all 0.2s; }
   .ProjectItem:hover {
-    border-color: #7579e7; }
+    border-color: #2666cf; }
+    .ProjectItem:hover .project-content .project-title {
+      color: #2666cf; }
   .ProjectItem .project-img {
     margin-right: 2rem;
     display: flex;
@@ -402,7 +421,8 @@ body {
     margin-bottom: 0.5rem;
     font-size: 1.8rem;
     font-weight: 500;
-    color: #000; }
+    color: #000;
+    transition: all 0.2s; }
   .ProjectItem .project-content .projects-desc {
     font-size: 1.38rem;
     line-height: 17px;
@@ -429,14 +449,20 @@ body {
   .GitHubBtn a {
     padding: 0.5rem 1rem;
     text-decoration: none;
-    border: 1px solid #e5e7eb;
-    border-radius: 3px; }
+    border: 1px solid #2666cf;
+    border-radius: 3px;
+    transition: all 0.2s; }
     .GitHubBtn a p {
       font-size: 1.7rem;
-      color: #000;
-      margin: auto 0; }
+      color: #2666cf;
+      margin: auto 0;
+      transition: all 0.2s; }
       .GitHubBtn a p span {
         font-size: 1.7rem; }
+    .GitHubBtn a:hover {
+      background-color: #2666cf; }
+      .GitHubBtn a:hover p {
+        color: #fff; }
 
 .Timeline {
   margin-top: 2rem;

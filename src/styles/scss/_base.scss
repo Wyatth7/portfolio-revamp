@@ -47,24 +47,46 @@ body {
     }
   }
 
-  h3,
-  h4,
-  h1,
-  h2 {
+  .ProjectLoader {
     color: $theme-btn-secondary;
   }
 
+  h4,
+  h1 {
+    color: $theme-btn-secondary;
+  }
+
+  h3 {
+    color: $green;
+  }
+
+  .show-more-paragraph {
+    color: $white;
+  }
+
+  h2,
   a,
   .Footer a,
-  .Home .show-more p,
   .GitHubBtn a p,
   .Blog .search-posts,
   .Blog .search-posts input,
   .BlogPost .back-icon,
+  .home .show-more p,
   .BlogItem .title-views h3,
-  .ProjectItem .project-content .project-title,
   .ProjectItem .project-img,
   .icon {
+    color: $white;
+  }
+
+  .GitHubBtn a {
+    border-color: $white;
+
+    &:hover {
+      border-color: $theme-btn-secondary;
+    }
+  }
+
+  .ProjectItem .project-content .project-title {
     color: $theme-btn-secondary;
   }
 
@@ -103,6 +125,14 @@ body {
 
   .active-nav-link {
     color: $theme-btn-secondary;
+  }
+
+  .Footer {
+    a {
+      &:hover {
+        color: $theme-btn-secondary;
+      }
+    }
   }
 
   ::placeholder {

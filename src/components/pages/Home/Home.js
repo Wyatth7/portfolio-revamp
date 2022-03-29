@@ -105,7 +105,7 @@ const Home = (props) => {
               </div>
             ) : (
               <NavLink className="show-more" to="/projects">
-                <p>
+                <p className="show-more-paragraph">
                   See More{" "}
                   <span>
                     <FontAwesomeIcon icon={solid.faChevronDown} />

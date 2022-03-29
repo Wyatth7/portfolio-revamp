@@ -11,6 +11,12 @@
   &:hover {
     // box-shadow: 1px 2px 2px $theme-btn-secondary;
     border-color: $theme-btn-secondary;
+
+    .project-content {
+      .project-title {
+        color: $theme-btn-secondary;
+      }
+    }
   }
 
   .project-img {
@@ -28,6 +34,7 @@
       font-size: 1.8rem;
       font-weight: 500;
       color: $black;
+      transition: all 0.2s;
     }
 
     .projects-desc {

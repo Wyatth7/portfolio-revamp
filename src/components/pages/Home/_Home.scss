@@ -11,8 +11,12 @@
     text-decoration: none;
 
     p {
-      color: $black;
       font-weight: 500;
+      transition: all 0.2s;
+
+      &:hover {
+        color: $theme-btn-secondary;
+      }
     }
   }
 }

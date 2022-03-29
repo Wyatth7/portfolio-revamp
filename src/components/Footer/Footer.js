@@ -6,7 +6,6 @@ const Footer = (props) => {
     <footer className="Footer">
       <div>
         <NavLinks to="/" title="Home" />
-        <NavLinks to="/blog" title="Blog" />
         <NavLinks to="/projects" title="Projects" />
         <a
           href="https://github.com/Wyatth7"
