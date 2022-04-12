@@ -4,7 +4,7 @@ import PrimaryHeading from "./Headings/PrimaryHeading/PrimaryHeading";
 const MainPage = (props) => {
   return (
     <div className="MainPage">
-      <PrimaryHeading heading={props.pageHead} introText={props.headText} />
+      <PrimaryHeading url={props.url} />
       <div className="content">{props.children}</div>
     </div>
   );

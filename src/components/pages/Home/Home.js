@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 // ICONS
@@ -14,6 +14,7 @@ import TimeLine from "./Timeline/Timeline";
 import TimelineInfo from "./Timeline/TimelineInfo/TimelineInfo";
 import axios from "axios";
 import ProjectLoader from "../../animations/ProjectLoader/ProjectLoader";
+import useFetch from "../../../custom-hooks/useFetch";
 // import breakDownTimeline from "../../../utils/breakDownTimeline";
 
 // const text =
@@ -21,67 +22,63 @@ import ProjectLoader from "../../animations/ProjectLoader/ProjectLoader";
 
 const Home = (props) => {
   const [projects, setProjects] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [text, setText] = useState("");
-  const [title, setTitle] = useState("");
+  // const [text, setText] = useState("");
+  // const [title, setTitle] = useState("");
+  // const [pageInfo, setPageInfo] = useState({});
+
   // const [timeline, setTimeline] = useState({});
 
-  useEffect(() => {
-    const call = async () => {
-      try {
-        const pageHeader = await axios.get("/api/v1/pageText/getPageText", {
-          params: {
-            page: "home",
-          },
-        });
+  const setProjectData = (repoData) => {
+    let projectArr = [];
 
-        // const timelineData = await axios.get("/api/v1/timeline/getAllYears");
-        // console.log(timelineData.data.data);
-
-        // setTimeline(timelineData.data.data);
-        setTitle(pageHeader.data.data.pageTitle);
-        setText(pageHeader.data.data.pageText);
-
-        const repos = await axios.get("/api/v1/github/repos");
-
-        let projectArr = [];
-
-        repos.data.repos.forEach((el) => {
-          if (el.type === "Full Stack") {
-            projectArr.push(el);
-          }
-          if (el.type === "Front End") {
-            projectArr.push(el);
-          }
-        });
-
-        setProjects(
-          projectArr.sort((a, b) => {
-            if (a.type < b.type) {
-              return 1;
-            } else if (a.type > b.type) {
-              return -1;
-            } else {
-              return 0;
-            }
-          })
-        );
-        setLoading(false);
-      } catch (err) {
-        console.error("Could not get projects from server.");
-        // console.err("Could not get projects from server.");
+    repoData.repos.forEach((el) => {
+      if (el.type === "Full Stack") {
+        projectArr.push(el);
       }
-    };
+      if (el.type === "Front End") {
+        projectArr.push(el);
+      }
+    });
 
-    call();
-  }, [setProjects, setLoading, setText, setTitle]);
+    setProjects(
+      projectArr.sort((a, b) => {
+        if (a.type < b.type) {
+          return 1;
+        } else if (a.type > b.type) {
+          return -1;
+        } else {
+          return 0;
+        }
+      })
+    );
+  };
+
+  // const { data: pageTextData, pageTextDataLoading } = useFetch({
+  //   method: "GET",
+  //   url: "http://localhost:8080/api/v1/pageText/getPageText?page=home",
+  // });
+  // const {
+  //   projectData,
+  //   projectDataLoading,
+  //   sendRequest: fetchProjects,
+  // } = useFetch(
+  //   {
+  //     method: "GET",
+  //     url: "/api/v1/github/repos",
+  //   },
+  //   setProjectData
+  // );
+
+  // useEffect(() => {
+  //   setPageInfo(pageTextData.data);
+  // }, [pageTextData, setPageInfo]);
 
   return (
     <div className="Home">
       <Helmet>
         <title>Home | Wyatt Hardin</title>
       </Helmet>
-      <MainPage pageHead={title} headText={text}>
+      <MainPage url="http://localhost:8080/api/v1/pageText/getPageText?page=home">
         {projects ? (
           <SubHeading heading="Projects">
             {projects.map((el, index) => {
@@ -99,7 +96,7 @@ const Home = (props) => {
                 return null;
               }
             })}
-            {loading ? (
+            {1 > 0 ? (
               <div className="loader">
                 <ProjectLoader />
               </div>

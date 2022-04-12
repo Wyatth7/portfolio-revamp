@@ -1,5 +1,6 @@
 const path = require("path");
 const express = require("express");
+const cors = require("cors");
 const blogRoutes = require("./server/dist/routes/blogRoutes");
 const projectRoutes = require("./server/dist/routes/project");
 const headerRoutes = require("./server/dist/routes/HeaderRoutes");
@@ -8,6 +9,7 @@ const pageTextRoutes = require("./server/dist/routes/pageTextRoutes");
 
 const app = express();
 
+app.use(cors());
 app.use(express.static(path.join(__dirname, "./build")));
 app.use(express.json());
 
