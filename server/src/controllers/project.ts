@@ -59,7 +59,7 @@ export const gitHubData = async (
       })
       .filter((el) => el !== null);
 
-    res.status(200).json({ repos: filteredData });
+    res.status(200).json({ data: filteredData });
   } catch (err) {
     console.log(err);
     res.status(400).json({ message: "fail" });
