@@ -1,5 +1,5 @@
 import express from "express";
-import * as pageTextController from "../controllers/pageTextController";
+import * as pageTextController from "../controllers/PageTextController";
 
 const router = express.Router();
 

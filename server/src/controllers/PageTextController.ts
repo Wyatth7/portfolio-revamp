@@ -33,22 +33,26 @@ export const createPageText: RequestHandler = async (req, res, next) => {
 
 export const getPageText: RequestHandler = async (req, res, next) => {
   try {
-    const queryString = req.query.page as string;
+    const { page } = req.query;
 
-    if (typeof queryString !== "string") {
-      return sendRes(res, 400, "Page must be a string");
+    if (typeof page !== "string") {
+      return sendRes(res, 400, "Invalid page query type. Must be string.");
     }
 
-    const pageText = await PageTextModel.findOne({ page: queryString });
+    const data = await PageTextModel.findOne({ page: page.toLowerCase() });
+
+    if (!data) {
+      return sendRes(res, 400, `Page: [ ${page} ] does not exist.`);
+    }
 
     res.status(200).json({
       status: "success",
-      data: pageText,
+      data
     });
-  } catch (err) {
+  } catch (e) {
     res.status(400).json({
       status: "fail",
-      message: "Could not get page text.",
+      message: "Could not get page data.",
     });
   }
 };

@@ -22,61 +22,63 @@ import useFetch from "../../../custom-hooks/useFetch";
 
 const Home = (props) => {
   const [projects, setProjects] = useState([]);
+  const projectDataLoading = true;
+  
   // const [text, setText] = useState("");
   // const [title, setTitle] = useState("");
   // const [pageInfo, setPageInfo] = useState({});
 
   // const [timeline, setTimeline] = useState({});
 
-  const setProjectData = useCallback(
-    (repoData) => {
-      if (repoData.success === false) {
-        setProjects(null);
-        return;
-      }
-      console.log(repoData);
-      const repoDataToArray = Object.keys(repoData.data).map(
-        (key) => repoData.data[key]
-      );
-      let projectArr = [];
-
-      repoDataToArray.forEach((el) => {
-        if (el.type === "Full Stack") {
-          projectArr.push(el);
-        }
-        if (el.type === "Front End") {
-          projectArr.push(el);
-        }
-      });
-
-      setProjects(
-        projectArr.sort((a, b) => {
-          if (a.type < b.type) {
-            return 1;
-          } else if (a.type > b.type) {
-            return -1;
-          } else {
-            return 0;
-          }
-        })
-      );
-    },
-    [setProjects]
-  );
+  // const setProjectData = useCallback(
+  //   (repoData) => {
+  //     if (repoData.success === false) {
+  //       setProjects(null);
+  //       return;
+  //     }
+  //     console.log(repoData);
+  //     const repoDataToArray = Object.keys(repoData.data).map(
+  //       (key) => repoData.data[key]
+  //     );
+  //     let projectArr = [];
+  //
+  //     repoDataToArray.forEach((el) => {
+  //       if (el.type === "Full Stack") {
+  //         projectArr.push(el);
+  //       }
+  //       if (el.type === "Front End") {
+  //         projectArr.push(el);
+  //       }
+  //     });
+  //
+  //     setProjects(
+  //       projectArr.sort((a, b) => {
+  //         if (a.type < b.type) {
+  //           return 1;
+  //         } else if (a.type > b.type) {
+  //           return -1;
+  //         } else {
+  //           return 0;
+  //         }
+  //       })
+  //     );
+  //   },
+  //   [setProjects]
+  // );
 
   // const { data: pageTextData, pageTextDataLoading } = useFetch({
   //   method: "GET",
   //   url: "http://localhost:8080/api/v1/pageText/getPageText?page=home",
   // });
-  const { response: projectData, isLoading: projectDataLoading } = useFetch({
-    method: "GET",
-    url: "http://localhost:8080/api/v1/github/repos",
-  });
+  // const { response: projectData, isLoading: projectDataLoading } = useFetch({
+  //   method: "GET",
+  //   url: "http://localhost:8080/api/v1/github/repos",
+  // });
 
   // This works but causes an infinite loop. Banned from GitHub Again.
-  useEffect(() => {
-    setProjectData(projectData);
-  }, [setProjectData, projectData]);
+  // useEffect(() => {
+  //   setProjectData(projectData);
+  // }, [setProjectData, projectData]);
 
   return (
     <div className="Home">

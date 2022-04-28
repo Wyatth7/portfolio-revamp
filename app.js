@@ -1,6 +1,7 @@
 const path = require("path");
 const express = require("express");
 const cors = require("cors");
+
 const blogRoutes = require("./server/dist/routes/blogRoutes");
 const projectRoutes = require("./server/dist/routes/project");
 const headerRoutes = require("./server/dist/routes/HeaderRoutes");
@@ -10,7 +11,7 @@ const pageTextRoutes = require("./server/dist/routes/pageTextRoutes");
 const app = express();
 
 app.use(cors());
-app.use(express.static(path.join(__dirname, "./build")));
+// app.use(express.static(path.join(__dirname, "./build")));
 app.use(express.json());
 
 app.use("/api/v1/blog/posts", blogRoutes);
@@ -19,8 +20,8 @@ app.use("/api/v1/headers", headerRoutes);
 app.use("/api/v1/timeline", timlineRoutes);
 app.use("/api/v1/pageText", pageTextRoutes);
 
-app.use((req, res, next) => {
-  res.sendFile(path.join(__dirname, "./build", "index.html"));
-});
+// app.use((req, res, next) => {
+//   res.sendFile(path.join(__dirname, "./build", "index.html"));
+// });
 
 module.exports = app;

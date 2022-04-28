@@ -1,12 +1,11 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import {useCallback, useEffect, useState} from "react";
 
-const useFetch = (fetchObj) => {
-  const [response, setResponse] = useState({ data: null, success: false });
+const useFetch = (updateFunction) => {
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(false);
 
-  useEffect(() => {
-    const func = async () => {
+    const sendRequest = useCallback(async (fetchObj) => {
       try {
         const fetchedData = await axios({
           url: fetchObj.url,
@@ -17,17 +16,16 @@ const useFetch = (fetchObj) => {
           },
         });
 
-        setResponse({ data: { ...fetchedData.data.data }, success: true });
+        console.log(fetchedData.data.data)
+        updateFunction(fetchedData.data.data);
         setIsLoading(false);
       } catch (err) {
         console.log(err);
       }
-    };
+    }, [updateFunction]);
 
-    func();
-  }, [fetchObj]);
 
-  return { response, isLoading };
+  return { isLoading, error, sendRequest};
 };
 
 export default useFetch;
