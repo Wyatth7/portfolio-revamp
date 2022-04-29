@@ -16,16 +16,7 @@ const text =
   "All my projects are either NPM packages, full stack, or front end web apps. To check out each project, just click on it!";
 
 const Portfolio = (props) => {
-  // const [npm, setNpm] = useState([]);
-  // const [frontend, setFrontend] = useState([]);
-  // const [fullstack, setFullstack] = useState([]);
-  // const [other, setOther] = useState([]);
-  
   const [projects, setProjects] = useState({});
-  
-  const setStates = useCallback((fn, el) => {
-    fn((prev) => [...prev, el]);
-  }, []);
   
   const setProjectData = useCallback((fetchedProjects) => {
     const newProjectState = {

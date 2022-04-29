@@ -1,6 +1,6 @@
 import React from "react";
 
-const TimeLine = (props) => {
+const TimeLineHeader = (props) => {
   return (
     <div className="Timeline">
       <h3>{props.date}</h3>
@@ -9,4 +9,4 @@ const TimeLine = (props) => {
   );
 };
 
-export default TimeLine;
+export default TimeLineHeader;

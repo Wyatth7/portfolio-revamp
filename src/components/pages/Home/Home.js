@@ -10,8 +10,8 @@ import MainPage from "../MainPage/MainPage";
 import SubHeading from "./../MainPage/Headings/SubHeading/SubHeading";
 import ProjectItem from "./../Portfolio/ProjectItem/ProjectItem";
 import { Helmet } from "react-helmet";
-import TimeLine from "./Timeline/Timeline";
-import TimelineInfo from "./Timeline/TimelineInfo/TimelineInfo";
+// import TimeLine from "./Timeline/Timeline";
+// import TimelineInfo from "./Timeline/TimelineInfo/TimelineInfo";
 import axios from "axios";
 import ProjectLoader from "../../animations/ProjectLoader/ProjectLoader";
 import useFetch from "../../../custom-hooks/useFetch";
@@ -105,52 +105,54 @@ const Home = (props) => {
             )}
           </SubHeading>
         ) : null}
+          
 
         <SubHeading heading="Timeline">
-          <TimeLine date="2021">
-            <TimelineInfo
-              title="Learned C#"
-              info="In preparation for university classes, I began learning C# and the .NET framework."
-            />
-          </TimeLine>
-          <TimeLine date="2020">
-            <TimelineInfo
-              title="Learned React"
-              info="I began learning my first front end framework."
-            />
-            <TimelineInfo
-              title="Learned Node.js, Express, MongoDB, and Mongoose"
-              info="I began learning server side technologies."
-            />
-          </TimeLine>
-          <TimeLine date="2019">
-            <TimelineInfo
-              title="Learned Java"
-              info="I started learning Java via Udemy in preperation for university classes."
-            />
-            <TimelineInfo
-              title="Left EMSCO"
-              info="I resigned from my position at EMSCO to focus on my education."
-            />
-            <TimelineInfo
-              title="Learned Javascript"
-              info="I started learning Javascript."
-            />
-          </TimeLine>
-          <TimeLine date="2018">
-            <TimelineInfo
-              title="Started at EMSCO"
-              info="I began working as a janitor for EMSCO."
-            />
-            <TimelineInfo
-              title="Learned Javascript"
-              info="I started learning Javascript via Udemy."
-            />
-            <TimelineInfo
-              title="Learned HTML/CSS"
-              info="I started learning HTML/CSS via Udemy."
-            />
-          </TimeLine>
+
+          {/*<TimeLine date="2021">*/}
+          {/*  <TimelineInfo*/}
+          {/*    title="Learned C#"*/}
+          {/*    info="In preparation for university classes, I began learning C# and the .NET framework."*/}
+          {/*  />*/}
+          {/*</TimeLine>*/}
+          {/*<TimeLine date="2020">*/}
+          {/*  <TimelineInfo*/}
+          {/*    title="Learned React"*/}
+          {/*    info="I began learning my first front end framework."*/}
+          {/*  />*/}
+          {/*  <TimelineInfo*/}
+          {/*    title="Learned Node.js, Express, MongoDB, and Mongoose"*/}
+          {/*    info="I began learning server side technologies."*/}
+          {/*  />*/}
+          {/*</TimeLine>*/}
+          {/*<TimeLine date="2019">*/}
+          {/*  <TimelineInfo*/}
+          {/*    title="Learned Java"*/}
+          {/*    info="I started learning Java via Udemy in preperation for university classes."*/}
+          {/*  />*/}
+          {/*  <TimelineInfo*/}
+          {/*    title="Left EMSCO"*/}
+          {/*    info="I resigned from my position at EMSCO to focus on my education."*/}
+          {/*  />*/}
+          {/*  <TimelineInfo*/}
+          {/*    title="Learned Javascript"*/}
+          {/*    info="I started learning Javascript."*/}
+          {/*  />*/}
+          {/*</TimeLine>*/}
+          {/*<TimeLine date="2018">*/}
+          {/*  <TimelineInfo*/}
+          {/*    title="Started at EMSCO"*/}
+          {/*    info="I began working as a janitor for EMSCO."*/}
+          {/*  />*/}
+          {/*  <TimelineInfo*/}
+          {/*    title="Learned Javascript"*/}
+          {/*    info="I started learning Javascript via Udemy."*/}
+          {/*  />*/}
+          {/*  <TimelineInfo*/}
+          {/*    title="Learned HTML/CSS"*/}
+          {/*    info="I started learning HTML/CSS via Udemy."*/}
+          {/*  />*/}
+          {/*</TimeLine>*/}
         </SubHeading>
       </MainPage>
     </div>
