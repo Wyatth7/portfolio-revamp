@@ -83,7 +83,7 @@ const Portfolio = (props) => {
                             link={project.link}
                             title={project.title}
                             description={project.description}
-                            tags={project.tags}
+                            tags={project.topics}
                             key={index}
                           />
                         ))
