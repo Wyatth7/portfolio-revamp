@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import { Helmet } from "react-helmet";
 
 // ICONS
@@ -9,122 +9,90 @@ import MainPage from "../MainPage/MainPage";
 import SubHeading from "./../MainPage/Headings/SubHeading/SubHeading";
 import GitHubBtn from "./GitHubBtn/GitHubBtn";
 import ProjectItem from "./ProjectItem/ProjectItem";
-import axios from "axios";
 import ProjectLoader from "../../animations/ProjectLoader/ProjectLoader";
+import useFetch from "../../../custom-hooks/useFetch";
 
 const text =
   "All my projects are either NPM packages, full stack, or front end web apps. To check out each project, just click on it!";
 
 const Portfolio = (props) => {
-  const [npm, setNpm] = useState([]);
-  const [frontend, setFrontend] = useState([]);
-  const [fullstack, setFullstack] = useState([]);
-  const [other, setOther] = useState([]);
-  const [loader, setLoader] = useState(true);
-
-  useEffect(() => {
-    const CALL = async () => {
-      try {
-        const repos = await axios.get("/api/v1/github/repos");
-
-        repos.data.repos.forEach((el) => {
-          switch (el.type) {
-            case "Front End":
-              setStates(setFrontend, el);
-              break;
+  // const [npm, setNpm] = useState([]);
+  // const [frontend, setFrontend] = useState([]);
+  // const [fullstack, setFullstack] = useState([]);
+  // const [other, setOther] = useState([]);
+  
+  const [projects, setProjects] = useState({});
+  
+  const setStates = useCallback((fn, el) => {
+    fn((prev) => [...prev, el]);
+  }, []);
+  
+  const setProjectData = useCallback((fetchedProjects) => {
+    const newProjectState = {
+      fullstack: [],
+      frontend: [],
+      npm: [],
+      other: []
+    };
+    
+    fetchedProjects.forEach(project => {
+        switch (project.type) {
+          case "Front End":
+            newProjectState.frontend.push(project);
+            break;
             case "Full Stack":
-              setStates(setFullstack, el);
+              newProjectState.fullstack.push(project);
               break;
             case "NPM":
-              setStates(setNpm, el);
-
-              break;
-            case "Other":
-              setStates(setOther, el);
-
+              newProjectState.npm.push(project);
               break;
             default:
-              setStates(setOther, el);
-          }
-        });
-
-        setLoader(false);
-      } catch (err) {
-        console.error("Could not get projects from server.");
-      }
-    };
-
-    CALL();
-  }, [setFrontend, setFullstack, setNpm, setOther, setLoader]);
-
-  const setStates = (fn, el) => {
-    fn((prev) => [...prev, el]);
-  };
-
+              newProjectState.other.push(project);
+              break;
+            
+        }
+    })
+    
+    setProjects(newProjectState);
+    
+  }, [setProjects])
+  
+  const {isLoading: projectDataLoading, error, sendRequest: fetchProjectData} = useFetch(setProjectData);
+  
+  useEffect(() => {
+    fetchProjectData({
+      url: "http://localhost:8080/api/v1/github/repos",
+      method: "GET"
+    })
+  }, [fetchProjectData]);
+  
   return (
     <div className="Portfolio">
       <Helmet>
         <title>Projects | Wyatt Hardin</title>
       </Helmet>
-      <MainPage pageHead="Projects" headText={text}>
+      <MainPage url="http://localhost:8080/api/v1/pageText/getPageText?page=projects" pageHead="Projects" headText={text}>
         <div className="portfolio-content">
-          {fullstack.length !== 0 ? (
-            <SubHeading heading="Full Stack">
-              {fullstack.map((el) => (
-                <ProjectItem
-                  link={el.homepage}
-                  title={el.title}
-                  description={el.description}
-                  tags={el.topics}
-                  key={el.title}
-                />
-              ))}
-            </SubHeading>
-          ) : null}
-
-          {frontend.length !== 0 ? (
-            <SubHeading heading="Front End">
-              {frontend.map((el) => (
-                <ProjectItem
-                  link={el.homepage}
-                  title={el.title}
-                  description={el.description}
-                  tags={el.topics}
-                  key={el.title}
-                />
-              ))}
-            </SubHeading>
-          ) : null}
-
-          {npm.length !== 0 ? (
-            <SubHeading heading="NPM">
-              {npm.map((el) => (
-                <ProjectItem
-                  link={el.url}
-                  title={el.title}
-                  description={el.description}
-                  tags={el.topics}
-                  key={el.title}
-                />
-              ))}
-            </SubHeading>
-          ) : null}
-
-          {other.length !== 0 ? (
-            <SubHeading heading="Other">
-              {other.map((el) => (
-                <ProjectItem
-                  link={el.url}
-                  title={el.title}
-                  description={el.description}
-                  tags={el.topics}
-                  key={el.title}
-                />
-              ))}
-            </SubHeading>
-          ) : null}
-
-          {loader ? (
+          {
+            Object.keys(projects).map(projectType => (
+                <SubHeading key={projectType} heading={projectType}>
+                  {
+                    projects[`${projectType}`].length > 0 ?
+                        projects[`${projectType}`].map((project, index) => (
+                          <ProjectItem 
+                            link={project.link}
+                            title={project.title}
+                            description={project.description}
+                            tags={project.tags}
+                            key={index}
+                          />
+                        ))
+                        : null
+                  }
+                </SubHeading>
+            ))
+          }
+          {projectDataLoading ? (
             <div className="portfolio-loader">
               <ProjectLoader />
             </div>

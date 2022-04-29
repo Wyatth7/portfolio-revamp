@@ -17,68 +17,54 @@ import ProjectLoader from "../../animations/ProjectLoader/ProjectLoader";
 import useFetch from "../../../custom-hooks/useFetch";
 // import breakDownTimeline from "../../../utils/breakDownTimeline";
 
-// const text =
-//   "If you haven't already guessed it, I'm a fullstack web developer who mostly uses Javascript and its surrounding frameworks. As you look around my corner of the internet, you will not only find information about myself, but you will also recieve full access to my public Github repositories, so, if you find a project that interests you, check it out! And, if you find a bug in the code, just open an issue. ";
-
 const Home = (props) => {
   const [projects, setProjects] = useState([]);
-  const projectDataLoading = true;
+
+  // Sets and sorts array of objects to be used.
+  const setProjectData = useCallback(
+    (repoData) => {
+      if (repoData.success === false) {
+        setProjects(null);
+        return;
+      }
+      let projectArr = [];
+      
+      // removes all projects from repoData that are not
+      // full-stack or front-end.  
+      repoData.forEach((el) => {
+        if (el.type === "Full Stack") {
+          projectArr.push(el);
+        }
+        if (el.type === "Front End") {
+          projectArr.push(el);
+        }
+      });
+
+      // sorts project array based on project type
+      //  Example: [full-stack, full-stack, front-end, front-end]
+      setProjects(
+        projectArr.sort((a, b) => {
+          if (a.type < b.type) {
+            return 1;
+          } else if (a.type > b.type) {
+            return -1;
+          } else {
+            return 0;
+          }
+        })
+      );
+    },
+    [setProjects]
+  );
   
-  // const [text, setText] = useState("");
-  // const [title, setTitle] = useState("");
-  // const [pageInfo, setPageInfo] = useState({});
-
-  // const [timeline, setTimeline] = useState({});
-
-  // const setProjectData = useCallback(
-  //   (repoData) => {
-  //     if (repoData.success === false) {
-  //       setProjects(null);
-  //       return;
-  //     }
-  //     console.log(repoData);
-  //     const repoDataToArray = Object.keys(repoData.data).map(
-  //       (key) => repoData.data[key]
-  //     );
-  //     let projectArr = [];
-  //
-  //     repoDataToArray.forEach((el) => {
-  //       if (el.type === "Full Stack") {
-  //         projectArr.push(el);
-  //       }
-  //       if (el.type === "Front End") {
-  //         projectArr.push(el);
-  //       }
-  //     });
-  //
-  //     setProjects(
-  //       projectArr.sort((a, b) => {
-  //         if (a.type < b.type) {
-  //           return 1;
-  //         } else if (a.type > b.type) {
-  //           return -1;
-  //         } else {
-  //           return 0;
-  //         }
-  //       })
-  //     );
-  //   },
-  //   [setProjects]
-  // );
-
-  // const { data: pageTextData, pageTextDataLoading } = useFetch({
-  //   method: "GET",
-  //   url: "http://localhost:8080/api/v1/pageText/getPageText?page=home",
-  // });
-  // const { response: projectData, isLoading: projectDataLoading } = useFetch({
-  //   method: "GET",
-  //   url: "http://localhost:8080/api/v1/github/repos",
-  // });
-
-  // This works but causes an infinite loop. Banned from GitHub Again.
-  // useEffect(() => {
-  //   setProjectData(projectData);
-  // }, [setProjectData, projectData]);
+  const {isLoading: projectDataLoading, error, sendRequest: fetchProjects} = useFetch(setProjectData);
+  
+  useEffect(() => {
+    fetchProjects({
+      url: "http://localhost:8080/api/v1/github/repos",
+      method: "GET"
+    })
+  }, [fetchProjects])
 
   return (
     <div className="Home">
@@ -121,30 +107,6 @@ const Home = (props) => {
         ) : null}
 
         <SubHeading heading="Timeline">
-          {/* {timeline ? (
-            Object.keys(timeline).map((el) => {
-              const arrayData = breakDownTimeline(timeline, el);
-              return (
-                <TimeLine date={el}>
-                  {arrayData.map((el) => (
-                    <TimelineInfo
-                      title="Learned C#"
-                      info="In preperation for university classes, I began learning C# and the .NET framework."
-                    />
-                  ))}
-                </TimeLine>
-              );
-            })
-          ) : (
-            // <TimeLine date="2021">
-            //   <TimelineInfo
-            //     title="Learned C#"
-            //     info="In preperation for university classes, I began learning C# and the .NET framework."
-            //   />
-            // </TimeLine>
-            <p>Could not load data.</p>
-          )} */}
-
           <TimeLine date="2021">
             <TimelineInfo
               title="Learned C#"

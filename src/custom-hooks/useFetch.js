@@ -1,6 +1,7 @@
 import axios from "axios";
 import {useCallback, useEffect, useState} from "react";
 
+// Hook to fetch API content.
 const useFetch = (updateFunction) => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -16,11 +17,11 @@ const useFetch = (updateFunction) => {
           },
         });
 
-        console.log(fetchedData.data.data)
         updateFunction(fetchedData.data.data);
         setIsLoading(false);
       } catch (err) {
         console.log(err);
+        setError(true);
       }
     }, [updateFunction]);
 
