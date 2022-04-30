@@ -1,6 +1,7 @@
 ﻿import React, {useCallback, useEffect, useState} from "react";
 import useFetch from "../../../../custom-hooks/useFetch";
 import TimelineHeader from "./TimeLineHeader/TimelineHeader";
+import TimelineInfo from "./TimelineInfo/TimelineInfo";
 
 const TimeLine = (props) => {
     const [timeLine, setTimeLine] = useState({});
@@ -21,8 +22,18 @@ const TimeLine = (props) => {
     return(
         <>
             {Object.keys(timeLine).length > 0 ?
-                Object.keys(timeLine).map((timeLineItem, index) => (
-                    <TimelineHeader key={index} date={timeLineItem}></TimelineHeader>
+                Object.keys(timeLine).reverse().map((timeLineItem, index) => (
+                    <TimelineHeader key={index} date={timeLineItem}>
+                        {
+                            timeLine[`${timeLineItem}`].map((itemDetails, index) => (
+                                <TimelineInfo 
+                                    key={index} 
+                                    title={itemDetails.title}
+                                    info={itemDetails.text}
+                                />
+                            ))
+                        }
+                    </TimelineHeader>
                 ))
             : null}
         </>    

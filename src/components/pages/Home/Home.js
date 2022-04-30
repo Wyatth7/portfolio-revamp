@@ -15,6 +15,7 @@ import { Helmet } from "react-helmet";
 import axios from "axios";
 import ProjectLoader from "../../animations/ProjectLoader/ProjectLoader";
 import useFetch from "../../../custom-hooks/useFetch";
+import TimeLine from "./Timeline/TimeLine";
 // import breakDownTimeline from "../../../utils/breakDownTimeline";
 
 const Home = (props) => {
@@ -108,7 +109,7 @@ const Home = (props) => {
           
 
         <SubHeading heading="Timeline">
-
+            <TimeLine />
           {/*<TimeLine date="2021">*/}
           {/*  <TimelineInfo*/}
           {/*    title="Learned C#"*/}
