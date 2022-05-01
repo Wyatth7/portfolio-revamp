@@ -24,17 +24,18 @@
     width: 50%;
     height: 50%;
     z-index: 9999;
-    
+    padding: 1.5rem;
+
+
     .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.5rem;
       width: 100%;
       
       .title-text, .close-icon {
         color: $theme-btn-secondary;
-        font-size: 3rem;
+        font-size: 3.5rem;
       }
       
       .close-icon {

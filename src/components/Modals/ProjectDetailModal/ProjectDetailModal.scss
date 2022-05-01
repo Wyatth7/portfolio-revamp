@@ -1,0 +1,36 @@
+.ProjectDetailModal {
+  .project-text {
+    color: $dark-mode-white;
+  }
+  
+  .sub-modal-header {
+    color: $theme-btn-secondary;
+    font-size: 2rem;
+    margin-top: 1.5rem;
+  }
+  
+  .description {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+  }
+  
+  .tag-container {
+    
+    .tags {
+      display: flex;
+      margin-top: .4rem;
+          
+      .tag {
+        margin-right: 1.5rem;
+        font-size: 1.5rem;
+      }
+    }
+  }
+  
+  .project-link-container {
+    .project-links {
+      margin-top: 1.5rem;
+      display: flex;
+    }
+  }
+}

@@ -546,16 +546,58 @@ body {
     border: 1px solid #2666cf;
     width: 50%;
     height: 50%;
-    z-index: 9999; }
+    z-index: 9999;
+    padding: 1.5rem; }
     .Modal .ModalOverlay .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.5rem;
       width: 100%; }
       .Modal .ModalOverlay .header .title-text, .Modal .ModalOverlay .header .close-icon {
         color: #2666cf;
-        font-size: 3rem; }
+        font-size: 3.5rem; }
       .Modal .ModalOverlay .header .close-icon {
         font-size: 3rem;
         cursor: pointer; }
+
+.ProjectDetailModal .project-text {
+  color: #dfdbdb; }
+
+.ProjectDetailModal .sub-modal-header {
+  color: #2666cf;
+  font-size: 2rem;
+  margin-top: 1.5rem; }
+
+.ProjectDetailModal .description {
+  margin-top: 1rem;
+  font-size: 1.5rem; }
+
+.ProjectDetailModal .tag-container .tags {
+  display: flex;
+  margin-top: .4rem; }
+  .ProjectDetailModal .tag-container .tags .tag {
+    margin-right: 1.5rem;
+    font-size: 1.5rem; }
+
+.ProjectDetailModal .project-link-container .project-links {
+  margin-top: 1.5rem;
+  display: flex; }
+
+.ProjectLink {
+  margin-right: 1.5rem;
+  color: #dfdbdb;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all .2s; }
+  .ProjectLink .project-link-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .ProjectLink .project-link-wrapper .project-link-icon {
+      margin-bottom: 1rem;
+      justify-content: center;
+      font-size: 3rem; }
+    .ProjectLink .project-link-wrapper .action-text {
+      font-size: 1.5rem; }
+  .ProjectLink:hover {
+    color: #2666cf; }

@@ -64,7 +64,8 @@ const Portfolio = (props) => {
   }, [fetchProjectData]);
   
   const dispatchFunc = (project) => {
-    dispatch("SELECTED_PROJECT", {title: project.title, link: project.link, github: project.github, description: project.description, tags: project.topics});
+    console.log(project)
+    dispatch("SELECTED_PROJECT", {title: project.title, link: project.homepage, github: project.url, description: project.description, tags: project.topics});
     dispatch("SHOW_MODAL_DISPATCH");
   }
   
@@ -83,7 +84,6 @@ const Portfolio = (props) => {
                       projects[`${projectType}`].length > 0 ?
                           projects[`${projectType}`].map((project, index) => (
                             <ProjectItem 
-                              link={project.link}
                               title={project.title}
                               description={project.description}
                               tags={project.topics}
