@@ -7,16 +7,22 @@ import { Helmet } from "react-helmet";
 // COMPONENTS
 import MainPage from "../MainPage/MainPage";
 import SubHeading from "./../MainPage/Headings/SubHeading/SubHeading";
+import ProjectDetailModal from "./../../Modals/ProjectDetailModal/ProjectDetailModal";
 import GitHubBtn from "./GitHubBtn/GitHubBtn";
 import ProjectItem from "./ProjectItem/ProjectItem";
 import ProjectLoader from "../../animations/ProjectLoader/ProjectLoader";
 import useFetch from "../../../custom-hooks/useFetch";
+import useStore from "../../../custom-hooks/useStore";
+import ProjectWrapper from "../../hoc/ProjectWrapper/ProjectWrapper";
 
 const text =
   "All my projects are either NPM packages, full stack, or front end web apps. To check out each project, just click on it!";
 
 const Portfolio = (props) => {
+  const [state, dispatch] = useStore();
+  
   const [projects, setProjects] = useState({});
+  const [selectedProject, setSelectedProject] = useState({})
   
   const setProjectData = useCallback((fetchedProjects) => {
     const newProjectState = {
@@ -57,8 +63,14 @@ const Portfolio = (props) => {
     })
   }, [fetchProjectData]);
   
+  const dispatchFunc = (project) => {
+    dispatch("SELECTED_PROJECT", {title: project.title, link: project.link, github: project.github, description: project.description, tags: project.topics});
+    dispatch("SHOW_MODAL_DISPATCH");
+  }
+  
   return (
     <div className="Portfolio">
+      <ProjectDetailModal project={state.selectedProject} />
       <Helmet>
         <title>Projects | Wyatt Hardin</title>
       </Helmet>
@@ -67,19 +79,20 @@ const Portfolio = (props) => {
           {
             Object.keys(projects).map(projectType => (
                 <SubHeading key={projectType} heading={projectType}>
-                  {
-                    projects[`${projectType}`].length > 0 ?
-                        projects[`${projectType}`].map((project, index) => (
-                          <ProjectItem 
-                            link={project.link}
-                            title={project.title}
-                            description={project.description}
-                            tags={project.topics}
-                            key={index}
-                          />
-                        ))
-                        : null
-                  }
+                    {
+                      projects[`${projectType}`].length > 0 ?
+                          projects[`${projectType}`].map((project, index) => (
+                            <ProjectItem 
+                              link={project.link}
+                              title={project.title}
+                              description={project.description}
+                              tags={project.topics}
+                              key={index}
+                              clicked={() => dispatchFunc(project)}
+                            />
+                          ))
+                          : null
+                    }
                 </SubHeading>
             ))
           }

@@ -11,6 +11,7 @@ html {
   font-size: 62.5%; }
 
 body {
+  position: relative;
   box-sizing: border-box; }
 
 .dark-mode {
@@ -525,3 +526,36 @@ body {
     margin-left: 0.2rem;
     content: "";
     animation: addDots 3s linear infinite; }
+
+.Backdrop, .Modal {
+  position: fixed; }
+
+.Modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  z-index: 9998; }
+  .Modal .Backdrop {
+    background-color: rgba(34, 39, 45, 0.7);
+    width: 100%;
+    height: 100%; }
+  .Modal .ModalOverlay {
+    background-color: #22272d;
+    border: 1px solid #2666cf;
+    width: 50%;
+    height: 50%;
+    z-index: 9999; }
+    .Modal .ModalOverlay .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem;
+      width: 100%; }
+      .Modal .ModalOverlay .header .title-text, .Modal .ModalOverlay .header .close-icon {
+        color: #2666cf;
+        font-size: 3rem; }
+      .Modal .ModalOverlay .header .close-icon {
+        font-size: 3rem;
+        cursor: pointer; }

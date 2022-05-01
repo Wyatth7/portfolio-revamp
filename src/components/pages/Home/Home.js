@@ -16,9 +16,12 @@ import axios from "axios";
 import ProjectLoader from "../../animations/ProjectLoader/ProjectLoader";
 import useFetch from "../../../custom-hooks/useFetch";
 import TimeLine from "./Timeline/TimeLine";
+import ProjectDetailModal from "../../Modals/ProjectDetailModal/ProjectDetailModal";
+import useStore from "../../../custom-hooks/useStore";
 // import breakDownTimeline from "../../../utils/breakDownTimeline";
 
 const Home = (props) => {
+  const dispatch = useStore()[1];  
   const [projects, setProjects] = useState([]);
 
   // Sets and sorts array of objects to be used.
@@ -69,12 +72,13 @@ const Home = (props) => {
 
   return (
     <div className="Home">
+      <ProjectDetailModal />  
       <Helmet>
         <title>Home | Wyatt Hardin</title>
       </Helmet>
       <MainPage url="http://localhost:8080/api/v1/pageText/getPageText?page=home">
         {projects ? (
-          <SubHeading heading="Projects">
+          <SubHeading heading="Featured Projects">
             {projects.map((el, index) => {
               if (index < 3) {
                 return (
@@ -84,6 +88,7 @@ const Home = (props) => {
                     description={el.description}
                     tags={el.topics}
                     key={el.title}
+                    clicked={dispatch}
                   />
                 );
               } else {

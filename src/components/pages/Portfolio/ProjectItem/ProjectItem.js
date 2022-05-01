@@ -2,17 +2,19 @@ import React from "react";
 
 // COMPONENTS
 import ProjectTags from "./ProjectTags/ProjectTags";
+import useStore from "../../../../custom-hooks/useStore";
 
 // ICONS
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ProjectItem = (props) => {
+  
   return (
     <a
-      href={props.link}
       target="_blank"
       rel="noreferrer"
       className="ProjectItem"
+      onClick={props.clicked}
     >
       <div className="project-img"></div>
       <div className="project-content">
