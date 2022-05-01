@@ -68,7 +68,13 @@ const Home = (props) => {
       url: "http://localhost:8080/api/v1/github/repos",
       method: "GET"
     })
-  }, [fetchProjects])
+  }, [fetchProjects]);
+
+  const dispatchFunc = (project) => {
+      console.log(project)
+      dispatch("SELECTED_PROJECT", {title: project.title, link: project.homepage, github: project.url, description: project.description, tags: project.topics});
+      dispatch("SHOW_MODAL_DISPATCH");
+  }
 
   return (
     <div className="Home">
@@ -83,12 +89,11 @@ const Home = (props) => {
               if (index < 3) {
                 return (
                   <ProjectItem
-                    link={el.homepage}
                     title={el.title}
                     description={el.description}
                     tags={el.topics}
                     key={el.title}
-                    clicked={dispatch}
+                    clicked={() => dispatchFunc(el)}
                   />
                 );
               } else {
