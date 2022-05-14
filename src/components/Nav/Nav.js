@@ -10,11 +10,8 @@ const Nav = (props) => {
   return (
     <div className="Nav">
       <div className="wrapper">
-        <button onClick={() => props.themeChange()} className="theme-shift">
-          <FontAwesomeIcon
-            className="theme-icon"
-            icon={props.isDark ? solid.faMoon : solid.faSun}
-          />
+        <button className="theme-shift">
+          <FontAwesomeIcon className="theme-icon" icon={solid.faCode} />
         </button>
         <div className="links">
           <NavLinks exact title="Home" to="/" />
