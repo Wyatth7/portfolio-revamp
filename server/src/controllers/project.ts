@@ -8,9 +8,6 @@ export const gitHubData = async (
   next: NextFunction
 ) => {
   try {
-    // const octokit = new Octokit({
-    //   auth: "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",
-    // });
     const octokit = new Octokit();
     const data = await octokit.request("GET /users/{username}/repos", {
       mediaType: {
@@ -22,8 +19,6 @@ export const gitHubData = async (
     if (!data) {
       sendRes(res, 400, "Could not get user repositories");
     }
-
-    // console.log(data.data);
 
     const getType = (topics: string[] | undefined) => {
       if (topics?.includes("node")) {
@@ -49,7 +44,7 @@ export const gitHubData = async (
         }
 
         return {
-          title: el.name,
+          title: el.name.replace(/[_-]/g, " "),
           description: el.description,
           topics: el.topics,
           type: getType(el.topics),

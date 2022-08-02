@@ -21,6 +21,16 @@
   }
 }
 
+@media only screen and (max-width: 500px) {
+  .Footer {
+    div {
+      a {
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
 @media only screen and (min-width: 770px) {
   .Footer {
     padding: 1rem 20% 0 20%;
