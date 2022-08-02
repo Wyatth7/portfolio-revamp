@@ -10,3 +10,19 @@
     font-style: italic;
   }
 }
+
+@media only screen and (max-width: 500px) {
+  .ProjectTags {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $tags-bk;
+
+    p {
+      color: $black;
+      font-size: 1.45rem;
+      font-style: italic;
+      text-transform: capitalize;
+    }
+  }
+}

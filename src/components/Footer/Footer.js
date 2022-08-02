@@ -12,6 +12,7 @@ const Footer = (props) => {
           target="_blank"
           rel="noreferrer"
           title="GitHub"
+          className="NavLinks"
         >
           GitHub
         </a>

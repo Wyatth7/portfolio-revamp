@@ -181,6 +181,22 @@ body {
         font-size: 2rem;
         margin-right: 4rem; } }
 
+@media only screen and (max-width: 500px) {
+  .Nav {
+    border-bottom: 1px solid #61b15a; }
+    .Nav .wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      .Nav .wrapper .theme-shift {
+        display: none; }
+      .Nav .wrapper .links {
+        justify-content: center;
+        width: 100%;
+        margin-left: 0; }
+        .Nav .wrapper .links a:not(:last-of-type) {
+          margin-right: 0rem; } }
+
 @media only screen and (min-width: 770px) {
   .Nav {
     padding: 4rem 12%; } }
@@ -204,6 +220,13 @@ body {
 
 .active-nav-link {
   color: #2666cf; }
+
+@media only screen and (max-width: 500px) {
+  .NavLinks {
+    font-size: 2.5rem;
+    text-align: center; }
+    .NavLinks:not(:nth-child(:last-child)) {
+      margin-right: 2rem; } }
 
 .Footer {
   padding: 1rem 2.5rem 0 2.5rem; }
@@ -248,6 +271,10 @@ body {
     .Home .show-more p:hover {
       color: #2666cf; }
 
+@media only screen and (max-width: 500px) {
+  .Home .show-more p {
+    font-size: 2.2rem; } }
+
 .SubHeading h2 {
   font-size: 2.2rem; }
 
@@ -255,12 +282,29 @@ body {
   .SubHeading h2 {
     font-size: 3.5rem; } }
 
+@media only screen and (max-width: 500px) {
+  .SubHeading h2 {
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #2666cf; } }
+
 .PrimaryHeading h1 {
   font-size: 2.5rem; }
 
 @media only screen and (min-width: 700px) {
   .PrimaryHeading h1 {
     font-size: 4rem; } }
+
+@media only screen and (max-width: 500px) {
+  .PrimaryHeading {
+    margin-top: 1rem;
+    text-align: center; }
+    .PrimaryHeading h1 {
+      font-size: 4.5rem; }
+    .PrimaryHeading p {
+      font-size: 2.5rem;
+      line-height: 3.6rem; } }
 
 .Blog {
   width: 100%; }
@@ -433,6 +477,24 @@ body {
     flex-wrap: wrap;
     margin-right: 0.6rem; }
 
+@media only screen and (max-width: 500px) {
+  .ProjectItem {
+    margin-bottom: 2rem;
+    padding: 1.5rem; }
+    .ProjectItem .project-content .project-title {
+      margin-bottom: 1rem;
+      font-size: 2.5rem;
+      font-weight: 500;
+      text-transform: capitalize; }
+    .ProjectItem .project-content .projects-desc {
+      font-size: 1.65rem;
+      line-height: 2rem;
+      margin-bottom: 1rem;
+      word-wrap: normal; }
+    .ProjectItem .project-content div {
+      flex-wrap: wrap;
+      margin-right: 0.6rem; } }
+
 .ProjectTags {
   display: flex;
   justify-content: center;
@@ -442,6 +504,18 @@ body {
     color: #000;
     font-size: 1.2rem;
     font-style: italic; }
+
+@media only screen and (max-width: 500px) {
+  .ProjectTags {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5; }
+    .ProjectTags p {
+      color: #000;
+      font-size: 1.45rem;
+      font-style: italic;
+      text-transform: capitalize; } }
 
 .GitHubBtn {
   display: flex;
@@ -474,6 +548,15 @@ body {
   .Timeline div {
     margin-bottom: 2rem; }
 
+@media only screen and (max-width: 500px) {
+  .Timeline {
+    margin-top: 2rem; }
+    .Timeline h3 {
+      font-size: 2.6rem;
+      margin-bottom: 2rem; }
+    .Timeline div {
+      margin-bottom: 2rem; } }
+
 .TimelineInfo {
   display: flex; }
   .TimelineInfo .icon {
@@ -485,6 +568,16 @@ body {
   .TimelineInfo .info p {
     margin-top: 0.2rem;
     font-size: 1.3rem; }
+
+@media only screen and (max-width: 500px) {
+  .TimelineInfo .icon {
+    margin-right: 1rem;
+    font-size: 1.9rem; }
+  .TimelineInfo .info h4 {
+    font-size: 2.3rem; }
+  .TimelineInfo .info p {
+    margin-top: 0.4rem;
+    font-size: 1.6rem; } }
 
 @keyframes spin {
   0% {

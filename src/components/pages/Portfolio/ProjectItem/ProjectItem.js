@@ -8,7 +8,6 @@ import useStore from "../../../../custom-hooks/useStore";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ProjectItem = (props) => {
-  
   return (
     <a
       target="_blank"
@@ -18,7 +17,7 @@ const ProjectItem = (props) => {
     >
       <div className="project-img"></div>
       <div className="project-content">
-        <h3 className="project-title">{props.title}</h3>
+        <h3 className="project-title">{props.title.replace(/[_-]/g, " ")}</h3>
         <p className="projects-desc">{props.description}</p>
         <div>
           {props.tags

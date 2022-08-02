@@ -11,3 +11,18 @@
     margin-bottom: 2rem;
   }
 }
+
+@media only screen and (max-width: 500px) {
+  .Timeline {
+    margin-top: 2rem;
+
+    h3 {
+      font-size: 2.6rem;
+      margin-bottom: 2rem;
+    }
+
+    div {
+      margin-bottom: 2rem;
+    }
+  }
+}

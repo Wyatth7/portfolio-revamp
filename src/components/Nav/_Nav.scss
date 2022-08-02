@@ -82,6 +82,31 @@
   }
 }
 
+@media only screen and (max-width: 500px) {
+  .Nav {
+    border-bottom: 1px solid $green;
+    .wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .theme-shift {
+        display: none;
+      }
+
+      .links {
+        justify-content: center;
+        width: 100%;
+        margin-left: 0;
+
+        a:not(:last-of-type) {
+          margin-right: 0rem;
+        }
+      }
+    }
+  }
+}
+
 @media only screen and (min-width: 770px) {
   .Nav {
     padding: 4rem 12%;

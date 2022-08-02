@@ -11,3 +11,18 @@
     }
   }
 }
+
+@media only screen and (max-width: 500px) {
+  .PrimaryHeading {
+    margin-top: 1rem;
+    text-align: center;
+    h1 {
+      font-size: 4.5rem;
+    }
+
+    p {
+      font-size: 2.5rem;
+      line-height: 3.6rem;
+    }
+  }
+}
