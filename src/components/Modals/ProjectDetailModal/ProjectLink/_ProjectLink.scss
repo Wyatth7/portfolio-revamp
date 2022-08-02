@@ -3,25 +3,46 @@
   color: $dark-mode-white;
   cursor: pointer;
   text-decoration: none;
-  transition: all .2s;
-  
+  transition: all 0.2s;
+
   .project-link-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
     .project-link-icon {
       margin-bottom: 1rem;
       justify-content: center;
       font-size: 3rem;
     }
-    
+
     .action-text {
       font-size: 1.5rem;
     }
   }
-  
+
   &:hover {
     color: $theme-btn-secondary;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .ProjectLink {
+    margin: 2rem 0;
+
+    .project-link-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .project-link-icon {
+        margin-bottom: 1.4rem;
+        font-size: 5.6rem;
+      }
+
+      .action-text {
+        font-size: 2.1rem;
+      }
+    }
   }
 }

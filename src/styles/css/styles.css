@@ -527,7 +527,8 @@ body {
     content: "";
     animation: addDots 3s linear infinite; }
 
-.Backdrop, .Modal {
+.Backdrop,
+.Modal {
   position: fixed; }
 
 .Modal {
@@ -553,12 +554,20 @@ body {
       justify-content: space-between;
       align-items: center;
       width: 100%; }
-      .Modal .ModalOverlay .header .title-text, .Modal .ModalOverlay .header .close-icon {
+      .Modal .ModalOverlay .header .title-text,
+      .Modal .ModalOverlay .header .close-icon {
         color: #2666cf;
         font-size: 3.5rem; }
       .Modal .ModalOverlay .header .close-icon {
         font-size: 3rem;
         cursor: pointer; }
+
+@media only screen and (max-width: 705px) {
+  .Modal .ModalOverlay {
+    width: 100%;
+    height: 100%;
+    border: none;
+    overflow-y: auto; } }
 
 .ProjectDetailModal .project-text {
   color: #dfdbdb; }
@@ -574,7 +583,7 @@ body {
 
 .ProjectDetailModal .tag-container .tags {
   display: flex;
-  margin-top: .4rem; }
+  margin-top: 0.4rem; }
   .ProjectDetailModal .tag-container .tags .tag {
     margin-right: 1.5rem;
     font-size: 1.5rem; }
@@ -583,12 +592,56 @@ body {
   margin-top: 1.5rem;
   display: flex; }
 
+@media only screen and (max-width: 705px) {
+  .ProjectDetailModal {
+    width: 100%;
+    height: 100%; }
+    .ProjectDetailModal .detail-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      margin-top: 2rem; }
+    .ProjectDetailModal .project-text {
+      color: #dfdbdb; }
+    .ProjectDetailModal .sub-modal-header {
+      font-size: 3rem;
+      text-align: center;
+      margin: 2rem 0; }
+    .ProjectDetailModal .description {
+      margin-top: 1rem;
+      font-size: 1.5rem; }
+    .ProjectDetailModal .tag-container .tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center; }
+      .ProjectDetailModal .tag-container .tags .tag {
+        text-transform: capitalize;
+        margin: 0.5rem 1.5rem 0.5rem 0;
+        font-size: 1.8rem;
+        text-align: center; }
+    .ProjectDetailModal .project-link-container .project-links {
+      margin-top: 1.5rem;
+      display: flex; } }
+
+@media only screen and (max-width: 500px) {
+  .ProjectDetailModal .description {
+    margin-top: 1rem;
+    font-size: 1.8rem;
+    line-height: 3rem; }
+  .ProjectDetailModal .project-link-container .project-links {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; } }
+
 .ProjectLink {
   margin-right: 1.5rem;
   color: #dfdbdb;
   cursor: pointer;
   text-decoration: none;
-  transition: all .2s; }
+  transition: all 0.2s; }
   .ProjectLink .project-link-wrapper {
     display: flex;
     flex-direction: column;
@@ -601,3 +654,16 @@ body {
       font-size: 1.5rem; }
   .ProjectLink:hover {
     color: #2666cf; }
+
+@media only screen and (max-width: 500px) {
+  .ProjectLink {
+    margin: 2rem 0; }
+    .ProjectLink .project-link-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+      .ProjectLink .project-link-wrapper .project-link-icon {
+        margin-bottom: 1.4rem;
+        font-size: 5.6rem; }
+      .ProjectLink .project-link-wrapper .action-text {
+        font-size: 2.1rem; } }
